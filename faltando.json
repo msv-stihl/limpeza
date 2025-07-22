@@ -1,0 +1,318 @@
+{
+  "T1": [
+    {
+      "Local Instalação": "BR01-IES-P27-BAN049",
+      "Arvore Prisma4 / Pro": "RS-ST01-27-00T-WCM02",
+      "Descrição": "BANHEIRO CENTRAL DE SERVICOS - M",
+      "Turnos": "T1"
+    },
+    {
+      "Local Instalação": "BR01-IES-P56-BAN129",
+      "Arvore Prisma4 / Pro": "RS-ST01-56-01P-WCM04",
+      "Descrição": "VESTIARIO 2o PAVIMENTO - M",
+      "Turnos": "T1"
+    },
+    {
+      "Local Instalação": "BR01-IES-P56-BAN131",
+      "Arvore Prisma4 / Pro": "RS-ST01-56-02P-WCM05",
+      "Descrição": "VESTIARIO 3o PAVIMENTO - M",
+      "Turnos": "T1"
+    }
+  ],
+  "T2": [
+    {
+      "Local Instalação": "BR01-IES-P56-BAN129",
+      "Arvore Prisma4 / Pro": "RS-ST01-56-01P-WCM04",
+      "Descrição": "VESTIARIO 2o PAVIMENTO - M",
+      "Turnos": "T2"
+    },
+    {
+      "Local Instalação": "BR01-IES-P56-BAN131",
+      "Arvore Prisma4 / Pro": "RS-ST01-56-02P-WCM05",
+      "Descrição": "VESTIARIO 3o PAVIMENTO - M",
+      "Turnos": "T2"
+    }
+  ],
+  "T3": [
+    {
+      "Local Instalação": "BR01-IES-P01-BAN004",
+      "Arvore Prisma4 / Pro": "RS-ST01-01-00T-WCF01",
+      "Descrição": "BANHEIRO VIRABREQUIM - F",
+      "Turnos": "T3"
+    },
+    {
+      "Local Instalação": "BR01-IES-P56-BAN129",
+      "Arvore Prisma4 / Pro": "RS-ST01-56-01P-WCM04",
+      "Descrição": "VESTIARIO 2o PAVIMENTO - M",
+      "Turnos": "T3"
+    },
+    {
+      "Local Instalação": "BR01-IES-P56-BAN131",
+      "Arvore Prisma4 / Pro": "RS-ST01-56-02P-WCM05",
+      "Descrição": "VESTIARIO 3o PAVIMENTO - M",
+      "Turnos": "T3"
+    }
+  ],
+  "T2E": [
+    {
+      "Local Instalação": "BR01-IES-P01-SALA03",
+      "Arvore Prisma4 / Pro": "RS-ST01-01-00T-SLA03",
+      "Descrição": "SALA SUPERVISAO VIRABREQUIM",
+      "Turnos": "T2E"
+    },
+    {
+      "Local Instalação": "BR01-IES-P01-SALA11",
+      "Arvore Prisma4 / Pro": "RS-ST01-01-01P-SLA24",
+      "Descrição": "MULTMEC - SALA ADM",
+      "Turnos": "T2E"
+    },
+    {
+      "Local Instalação": "BR01-IES-P01-SALA12",
+      "Arvore Prisma4 / Pro": "RS-ST01-01-01P-SLA02",
+      "Descrição": "MULTMEC - SALA ADM 2",
+      "Turnos": "T2E"
+    },
+    {
+      "Local Instalação": "BR01-IES-P01-SALA38",
+      "Arvore Prisma4 / Pro": "RS-ST01-01-00T-SLA25",
+      "Descrição": "SALA SUPERVISAO MANUTENCAO",
+      "Turnos": "T2E"
+    },
+    {
+      "Local Instalação": "BR01-IES-P01-SALA44",
+      "Arvore Prisma4 / Pro": "RS-ST01-01-00T-SLA30",
+      "Descrição": "TRF - SALA OFICINA",
+      "Turnos": "T2E"
+    },
+    {
+      "Local Instalação": "BR01-IES-P03-SALA06",
+      "Arvore Prisma4 / Pro": "RS-ST01-03-00T-SLA05",
+      "Descrição": "SALA REUNIAO SISTEMAS",
+      "Turnos": "T2E"
+    },
+    {
+      "Local Instalação": "BR01-IES-P11-SALA53",
+      "Arvore Prisma4 / Pro": "RS-ST01-11-01P-SLA24",
+      "Descrição": "PEO - COPA",
+      "Turnos": "T2E"
+    },
+    {
+      "Local Instalação": "BR01-IES-P15-SALA15",
+      "Arvore Prisma4 / Pro": "RS-ST01-15-00T-SLA11",
+      "Descrição": "LOGISTICA - RECEBIMENTO",
+      "Turnos": "T2E"
+    },
+    {
+      "Local Instalação": "BR01-IES-P18-SALA05",
+      "Arvore Prisma4 / Pro": "RS-ST01-18-00T-SLA07",
+      "Descrição": "PRESIDENCIA - SALA VP MARKETING",
+      "Turnos": "T2E"
+    },
+    {
+      "Local Instalação": "BR01-IES-P18-SALA10",
+      "Arvore Prisma4 / Pro": "RS-ST01-18-00T-SLA10",
+      "Descrição": "COMPRAS - SALA REUNIAO I",
+      "Turnos": "T2E"
+    },
+    {
+      "Local Instalação": "BR01-IES-P20-QUIO01",
+      "Arvore Prisma4 / Pro": "nan",
+      "Descrição": "QUIOSQUE",
+      "Turnos": "T2E"
+    },
+    {
+      "Local Instalação": "BR01-IES-P29-SALA12",
+      "Arvore Prisma4 / Pro": "RS-ST01-29-00T-SLA12",
+      "Descrição": "SALA DE MAQUINAS",
+      "Turnos": "T2E"
+    },
+    {
+      "Local Instalação": "BR01-IES-P32-SALA01",
+      "Arvore Prisma4 / Pro": "RS-ST01-32-01P-SLA02",
+      "Descrição": "SALA DE CONTROLE",
+      "Turnos": "T2E"
+    },
+    {
+      "Local Instalação": "BR01-IES-P38-SALA17",
+      "Arvore Prisma4 / Pro": "RS-ST01-38-00T-SLA03",
+      "Descrição": "ENGENHARIA DE AUTOMACAO",
+      "Turnos": "T2E"
+    },
+    {
+      "Local Instalação": "BR01-IES-P49-SALA29",
+      "Arvore Prisma4 / Pro": "nan",
+      "Descrição": "1º ANDAR - SALA REUNIAO 01.01",
+      "Turnos": "T2E"
+    }
+  ],
+  "T3E": [
+    {
+      "Local Instalação": "BR01-IES-P15-BAN033",
+      "Arvore Prisma4 / Pro": "RS-ST01-15-01P-WCM02",
+      "Descrição": "BANHEIRO ONE STIHL - F",
+      "Turnos": "T3E"
+    },
+    {
+      "Local Instalação": "BR01-IES-P15-BAN134",
+      "Arvore Prisma4 / Pro": "nan",
+      "Descrição": "BANHEIRO ONE STIHL - M",
+      "Turnos": "T3E"
+    },
+    {
+      "Local Instalação": "BR01-IES-P15-ESCD01",
+      "Arvore Prisma4 / Pro": "nan",
+      "Descrição": "ONE STIHL - ESCADARIA",
+      "Turnos": "T3E"
+    },
+    {
+      "Local Instalação": "BR01-IES-P15-SALA22",
+      "Arvore Prisma4 / Pro": "nan",
+      "Descrição": "ONE STIHL - SALA DE REUNIÃO VERDE",
+      "Turnos": "T3E"
+    },
+    {
+      "Local Instalação": "BR01-IES-P15-SALA23",
+      "Arvore Prisma4 / Pro": "nan",
+      "Descrição": "ONE STIHL - SALA DE REUNIÃO AZUL",
+      "Turnos": "T3E"
+    },
+    {
+      "Local Instalação": "BR01-IES-P15-SALA24",
+      "Arvore Prisma4 / Pro": "nan",
+      "Descrição": "ONE STIHL - SALA DE REUNIÃO VERMELHA",
+      "Turnos": "T3E"
+    },
+    {
+      "Local Instalação": "BR01-IES-P26-SALA01",
+      "Arvore Prisma4 / Pro": "RS-ST01-26-01P-SLA01",
+      "Descrição": "CENTRAL DE RESIDUOS - SALA ADM",
+      "Turnos": "T3E"
+    },
+    {
+      "Local Instalação": "BR01-IES-P28-SALA02",
+      "Arvore Prisma4 / Pro": "RS-ST01-28-00T-SLA21",
+      "Descrição": "SALA METROTOM",
+      "Turnos": "T3E"
+    },
+    {
+      "Local Instalação": "BR01-IES-P28-SALA23",
+      "Arvore Prisma4 / Pro": "RS-ST01-28-00T-SLA01",
+      "Descrição": "SALA MANUTENCAO MINI FABRICA USINAGEM",
+      "Turnos": "T3E"
+    },
+    {
+      "Local Instalação": "BR01-IES-P28-SALA31",
+      "Arvore Prisma4 / Pro": "RS-ST01-28-01P-SLA02",
+      "Descrição": "ADM CILINDROS - COPA",
+      "Turnos": "T3E"
+    },
+    {
+      "Local Instalação": "BR01-IES-P28-SALA32",
+      "Arvore Prisma4 / Pro": "RS-ST01-28-00T-SLA08",
+      "Descrição": "ADM CILINDROS - SALA GERENCIA I",
+      "Turnos": "T3E"
+    },
+    {
+      "Local Instalação": "BR01-IES-P28-SALA34",
+      "Arvore Prisma4 / Pro": "RS-ST01-28-00T-SLA10",
+      "Descrição": "ADM CILINDROS - SALA GERENCIA III",
+      "Turnos": "T3E"
+    },
+    {
+      "Local Instalação": "BR01-IES-P31-SALA04",
+      "Arvore Prisma4 / Pro": "RS-ST01-31-01P-SLA04",
+      "Descrição": "TREINAMENTOS - SALA MOTOPODA",
+      "Turnos": "T3E"
+    },
+    {
+      "Local Instalação": "BR01-IES-P31-SALA07",
+      "Arvore Prisma4 / Pro": "RS-ST01-31-01P-SLA06",
+      "Descrição": "TREINAMENTOS - SALA OFICINA DE IDEIAS",
+      "Turnos": "T3E"
+    },
+    {
+      "Local Instalação": "BR01-IES-P31-SALA84",
+      "Arvore Prisma4 / Pro": "nan",
+      "Descrição": "CFW - SALA SUPERVISÃO",
+      "Turnos": "T3E"
+    },
+    {
+      "Local Instalação": "BR01-IES-P31-SALA85",
+      "Arvore Prisma4 / Pro": "nan",
+      "Descrição": "CFW - SALA REUNIÃO",
+      "Turnos": "T3E"
+    },
+    {
+      "Local Instalação": "BR01-IES-P31-SALA86",
+      "Arvore Prisma4 / Pro": "nan",
+      "Descrição": "CFW - SALA DEPÓSITO MES",
+      "Turnos": "T3E"
+    },
+    {
+      "Local Instalação": "BR01-IES-P43-BAN089",
+      "Arvore Prisma4 / Pro": "RS-ST01-43-00T-WCF02",
+      "Descrição": "BANHEIRO EMBALAGEM - F",
+      "Turnos": "T3E"
+    },
+    {
+      "Local Instalação": "BR01-IES-P43-BAN090",
+      "Arvore Prisma4 / Pro": "RS-ST01-43-00T-WCF03",
+      "Descrição": "BANHEIRO MOTORISTAS - F",
+      "Turnos": "T3E"
+    },
+    {
+      "Local Instalação": "BR01-IES-P43-BAN091",
+      "Arvore Prisma4 / Pro": "RS-ST01-43-00T-WCM02",
+      "Descrição": "BANHEIRO MOTORISTAS - M",
+      "Turnos": "T3E"
+    },
+    {
+      "Local Instalação": "BR01-IES-P43-BAN132",
+      "Arvore Prisma4 / Pro": "RS-ST01-43-00T-WCM03",
+      "Descrição": "BANHEIRO WRS P43B - M",
+      "Turnos": "T3E"
+    },
+    {
+      "Local Instalação": "BR01-IES-P43-BAN133",
+      "Arvore Prisma4 / Pro": "RS-ST01-43-00T-WCF04",
+      "Descrição": "BANHEIRO WRS P43B - F",
+      "Turnos": "T3E"
+    },
+    {
+      "Local Instalação": "BR01-IES-P43-SALA15",
+      "Arvore Prisma4 / Pro": "RS-ST01-43-02P-SLA02",
+      "Descrição": "MVV - SALA VICE PRESIDENCIA",
+      "Turnos": "T3E"
+    },
+    {
+      "Local Instalação": "BR01-IES-P43-SALA37",
+      "Arvore Prisma4 / Pro": "RS-ST01-43-02P-SLA11",
+      "Descrição": "MVV - SALA ADM",
+      "Turnos": "T3E"
+    },
+    {
+      "Local Instalação": "BR01-IES-P43-SALA58",
+      "Arvore Prisma4 / Pro": "RS-ST01-43-00T-SLA16",
+      "Descrição": "MVV - SALA VENDAS AMERICA LATINA",
+      "Turnos": "T3E"
+    },
+    {
+      "Local Instalação": "BR01-IES-P50-SALA06",
+      "Arvore Prisma4 / Pro": "RS-ST01-50-00T-COP01",
+      "Descrição": "AUDITORIA DE PRODUTO - COPA",
+      "Turnos": "T3E"
+    },
+    {
+      "Local Instalação": "BR01-IES-P50-SALA33",
+      "Arvore Prisma4 / Pro": "RS-ST01-50-01P-SLA05",
+      "Descrição": "SALA DE TREINAMENTO",
+      "Turnos": "T3E"
+    },
+    {
+      "Local Instalação": "BR01-IES-P50-SALA42",
+      "Arvore Prisma4 / Pro": "RS-ST01-50-01P-STR02",
+      "Descrição": "ENGENHARIA DE PROCESSOS DE MOTORES",
+      "Turnos": "T3E"
+    }
+  ]
+}
