@@ -239,12 +239,6 @@
       "Turnos": "T2, T3"
     },
     {
-      "Local Instalação": "BR01-IES-P01-BAN002",
-      "Arvore Prisma4 / Pro": "RS-ST01-01-00T-WCM02",
-      "Descrição": "BANHEIRO VIRABREQUIM - M",
-      "Turnos": "T2, T3"
-    },
-    {
       "Local Instalação": "BR01-IES-P01-BAN003",
       "Arvore Prisma4 / Pro": "RS-ST01-01-00T-WCM03",
       "Descrição": "BANHEIRO VIRABREQUIM - M",
@@ -506,12 +500,6 @@
       "Local Instalação": "BR01-IES-P31-BAN066",
       "Arvore Prisma4 / Pro": "RS-ST01-31-02P-WCM01",
       "Descrição": "BANHEIRO ENG MANUTENCAO 3o PISO - M",
-      "Turnos": "T3E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P31-BAN067",
-      "Arvore Prisma4 / Pro": "RS-ST01-31-02P-WCF01",
-      "Descrição": "BANHEIRO ENG MANUTENCAO 3o PISO - F",
       "Turnos": "T3E"
     },
     {
@@ -908,12 +896,6 @@
       "Local Instalação": "BR01-IES-P50-BAN106",
       "Arvore Prisma4 / Pro": "RS-ST01-50-00T-WCM02",
       "Descrição": "BANHEIRO MONTAGEM - M",
-      "Turnos": "T1, T2, T3"
-    },
-    {
-      "Local Instalação": "BR01-IES-P50-BAN107",
-      "Arvore Prisma4 / Pro": "RS-ST01-50-00T-WCF02",
-      "Descrição": "BANHEIRO MONTAGEM - F",
       "Turnos": "T1, T2, T3"
     },
     {
@@ -1566,12 +1548,6 @@
       "Local Instalação": "BR01-IES-P31-BAN066",
       "Arvore Prisma4 / Pro": "RS-ST01-31-02P-WCM01",
       "Descrição": "BANHEIRO ENG MANUTENCAO 3o PISO - M",
-      "Turnos": "T3E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P31-BAN067",
-      "Arvore Prisma4 / Pro": "RS-ST01-31-02P-WCF01",
-      "Descrição": "BANHEIRO ENG MANUTENCAO 3o PISO - F",
       "Turnos": "T3E"
     },
     {
