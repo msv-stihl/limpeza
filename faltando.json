@@ -239,12 +239,6 @@
       "Turnos": "T2, T3"
     },
     {
-      "Local Instalação": "BR01-IES-P01-BAN003",
-      "Arvore Prisma4 / Pro": "RS-ST01-01-00T-WCM03",
-      "Descrição": "BANHEIRO VIRABREQUIM - M",
-      "Turnos": "T2, T3"
-    },
-    {
       "Local Instalação": "BR01-IES-P01-BAN004",
       "Arvore Prisma4 / Pro": "RS-ST01-01-00T-WCF01",
       "Descrição": "BANHEIRO VIRABREQUIM - F",
@@ -497,12 +491,6 @@
       "Turnos": "T1, T2, T3"
     },
     {
-      "Local Instalação": "BR01-IES-P31-BAN066",
-      "Arvore Prisma4 / Pro": "RS-ST01-31-02P-WCM01",
-      "Descrição": "BANHEIRO ENG MANUTENCAO 3o PISO - M",
-      "Turnos": "T3E"
-    },
-    {
       "Local Instalação": "BR01-IES-P31-BAN068",
       "Arvore Prisma4 / Pro": "RS-ST01-31-00T-WCM02",
       "Descrição": "BANHEIRO BRUNIMENTO SUL - M",
@@ -545,12 +533,6 @@
       "Turnos": "T3E"
     },
     {
-      "Local Instalação": "BR01-IES-P31-BAN075",
-      "Arvore Prisma4 / Pro": "RS-ST01-31-01P-WCF03",
-      "Descrição": "BANHEIRO TREINAMENTOS 2o PISO NORTE - F",
-      "Turnos": "T3E"
-    },
-    {
       "Local Instalação": "BR01-IES-P31-BAN076",
       "Arvore Prisma4 / Pro": "RS-ST01-31-02P-WCM02",
       "Descrição": "BANHEIRO ENG CILINDROS 3o PISO SUL - M",
@@ -560,18 +542,6 @@
       "Local Instalação": "BR01-IES-P31-BAN077",
       "Arvore Prisma4 / Pro": "RS-ST01-31-02P-WCF02",
       "Descrição": "BANHEIRO ENG CILINDROS 3o PISO SUL - F",
-      "Turnos": "T3E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P31-BAN078",
-      "Arvore Prisma4 / Pro": "RS-ST01-31-02P-WCM03",
-      "Descrição": "BANHEIRO ENG CILINDROS 3o PISO NORTE - M",
-      "Turnos": "T3E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P31-BAN079",
-      "Arvore Prisma4 / Pro": "RS-ST01-31-02P-WCF03",
-      "Descrição": "BANHEIRO ENG CILINDROS 3o PISO NORTE - F",
       "Turnos": "T3E"
     },
     {
@@ -1545,12 +1515,6 @@
       "Turnos": "T3E"
     },
     {
-      "Local Instalação": "BR01-IES-P31-BAN066",
-      "Arvore Prisma4 / Pro": "RS-ST01-31-02P-WCM01",
-      "Descrição": "BANHEIRO ENG MANUTENCAO 3o PISO - M",
-      "Turnos": "T3E"
-    },
-    {
       "Local Instalação": "BR01-IES-P31-BAN072",
       "Arvore Prisma4 / Pro": "RS-ST01-31-01P-WCM02",
       "Descrição": "BANHEIRO TREINAMENTOS 2o PISO SUL - M",
@@ -1569,12 +1533,6 @@
       "Turnos": "T3E"
     },
     {
-      "Local Instalação": "BR01-IES-P31-BAN075",
-      "Arvore Prisma4 / Pro": "RS-ST01-31-01P-WCF03",
-      "Descrição": "BANHEIRO TREINAMENTOS 2o PISO NORTE - F",
-      "Turnos": "T3E"
-    },
-    {
       "Local Instalação": "BR01-IES-P31-BAN076",
       "Arvore Prisma4 / Pro": "RS-ST01-31-02P-WCM02",
       "Descrição": "BANHEIRO ENG CILINDROS 3o PISO SUL - M",
@@ -1584,18 +1542,6 @@
       "Local Instalação": "BR01-IES-P31-BAN077",
       "Arvore Prisma4 / Pro": "RS-ST01-31-02P-WCF02",
       "Descrição": "BANHEIRO ENG CILINDROS 3o PISO SUL - F",
-      "Turnos": "T3E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P31-BAN078",
-      "Arvore Prisma4 / Pro": "RS-ST01-31-02P-WCM03",
-      "Descrição": "BANHEIRO ENG CILINDROS 3o PISO NORTE - M",
-      "Turnos": "T3E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P31-BAN079",
-      "Arvore Prisma4 / Pro": "RS-ST01-31-02P-WCF03",
-      "Descrição": "BANHEIRO ENG CILINDROS 3o PISO NORTE - F",
       "Turnos": "T3E"
     },
     {
