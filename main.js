@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
       loading.classList.remove("hidden");
 
       try {
-        const res = await fetch("https://raw.githubusercontent.com/msv-stihl/limpeza/main/frontend/public/faltando.json");
+        const res = await fetch("https://raw.githubusercontent.com/msv-stihl/limpeza/refs/heads/main/faltando.json");
         const data = await res.json();
         const lista = data[turno] || [];
 
