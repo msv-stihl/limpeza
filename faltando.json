@@ -255,12 +255,6 @@
       "Turnos": "T2E"
     },
     {
-      "Local Instalação": "BR01-IES-P18-SALA14",
-      "Arvore Prisma4 / Pro": "RS-ST01-18-00T-SLA14",
-      "Descrição": "COMPRAS - SALA GERENCIA SUPPLY CHAIN",
-      "Turnos": "T2E"
-    },
-    {
       "Local Instalação": "BR01-IES-P20-BAN042",
       "Arvore Prisma4 / Pro": "RS-ST01-20-00T-WCM01",
       "Descrição": "BANHEIRO AFAS GALPAO - M",
@@ -477,18 +471,6 @@
       "Turnos": "T2E"
     },
     {
-      "Local Instalação": "BR01-IES-P49-SALA32",
-      "Arvore Prisma4 / Pro": "RS-ST01-49-02P-SLA03",
-      "Descrição": "2o ANDAR - OFICINA DURABILIDADE E FUNCAO",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P49-SALA33",
-      "Arvore Prisma4 / Pro": "RS-ST01-49-02P-SLA04",
-      "Descrição": "2o ANDAR - SALA REUNIAO 02.01",
-      "Turnos": "T2E"
-    },
-    {
       "Local Instalação": "BR01-IES-P49-SALA34",
       "Arvore Prisma4 / Pro": "RS-ST01-49-02P-SLA05",
       "Descrição": "2o ANDAR - SALA REUNIAO 02.02",
@@ -504,12 +486,6 @@
       "Local Instalação": "BR01-IES-P50-BAN107",
       "Arvore Prisma4 / Pro": "RS-ST01-50-00T-WCF02",
       "Descrição": "BANHEIRO MONTAGEM - F",
-      "Turnos": "T1, T2, T3"
-    },
-    {
-      "Local Instalação": "BR01-IES-P50-BAN109",
-      "Arvore Prisma4 / Pro": "RS-ST01-50-00T-WCM01",
-      "Descrição": "BANHEIRO PINTURA - M",
       "Turnos": "T1, T2, T3"
     },
     {
@@ -1987,12 +1963,6 @@
       "Turnos": "T2E"
     },
     {
-      "Local Instalação": "BR01-IES-P18-SALA14",
-      "Arvore Prisma4 / Pro": "RS-ST01-18-00T-SLA14",
-      "Descrição": "COMPRAS - SALA GERENCIA SUPPLY CHAIN",
-      "Turnos": "T2E"
-    },
-    {
       "Local Instalação": "BR01-IES-P20-BAN042",
       "Arvore Prisma4 / Pro": "RS-ST01-20-00T-WCM01",
       "Descrição": "BANHEIRO AFAS GALPAO - M",
@@ -2200,18 +2170,6 @@
       "Local Instalação": "BR01-IES-P49-SALA30",
       "Arvore Prisma4 / Pro": "RS-ST01-49-02P-SLA01",
       "Descrição": "2o ANDAR - HALL DE ENTRADA",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P49-SALA32",
-      "Arvore Prisma4 / Pro": "RS-ST01-49-02P-SLA03",
-      "Descrição": "2o ANDAR - OFICINA DURABILIDADE E FUNCAO",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P49-SALA33",
-      "Arvore Prisma4 / Pro": "RS-ST01-49-02P-SLA04",
-      "Descrição": "2o ANDAR - SALA REUNIAO 02.01",
       "Turnos": "T2E"
     },
     {
