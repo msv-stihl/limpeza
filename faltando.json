@@ -261,12 +261,6 @@
       "Turnos": "T2E"
     },
     {
-      "Local Instalação": "BR01-IES-P18-SALA17",
-      "Arvore Prisma4 / Pro": "RS-ST01-18-00T-SLA18",
-      "Descrição": "COMPRAS - COPA",
-      "Turnos": "T2E"
-    },
-    {
       "Local Instalação": "BR01-IES-P20-BAN042",
       "Arvore Prisma4 / Pro": "RS-ST01-20-00T-WCM01",
       "Descrição": "BANHEIRO AFAS GALPAO - M",
@@ -295,12 +289,6 @@
       "Arvore Prisma4 / Pro": "RS-ST01-20-00T-SLA05",
       "Descrição": "GALPAO PRINCIPAL",
       "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P27-BAN049",
-      "Arvore Prisma4 / Pro": "RS-ST01-27-00T-WCM02",
-      "Descrição": "BANHEIRO CENTRAL DE SERVICOS - M",
-      "Turnos": "T1, T2, T3"
     },
     {
       "Local Instalação": "BR01-IES-P27-BAN051",
@@ -453,12 +441,6 @@
       "Turnos": "T2E"
     },
     {
-      "Local Instalação": "BR01-IES-P43-BAN088",
-      "Arvore Prisma4 / Pro": "RS-ST01-43-00T-WCF01",
-      "Descrição": "BANHEIRO EXPEDICAO - F",
-      "Turnos": "T2E, T3E"
-    },
-    {
       "Local Instalação": "BR01-IES-P43-SALA04",
       "Arvore Prisma4 / Pro": "RS-ST01-43-00T-SLA05",
       "Descrição": "EXPEDICAO - COPA",
@@ -519,12 +501,6 @@
       "Turnos": "T2E"
     },
     {
-      "Local Instalação": "BR01-IES-P50-BAN106",
-      "Arvore Prisma4 / Pro": "RS-ST01-50-00T-WCM02",
-      "Descrição": "BANHEIRO MONTAGEM - M",
-      "Turnos": "T1, T2, T3"
-    },
-    {
       "Local Instalação": "BR01-IES-P50-BAN107",
       "Arvore Prisma4 / Pro": "RS-ST01-50-00T-WCF02",
       "Descrição": "BANHEIRO MONTAGEM - F",
@@ -570,12 +546,6 @@
       "Local Instalação": "BR01-IES-P52-SALA05",
       "Arvore Prisma4 / Pro": "RS-ST01-52-00T-SLA03",
       "Descrição": "SALA SUPERVISAO",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P52-SALA06",
-      "Arvore Prisma4 / Pro": "RS-ST01-52-00T-SLA04",
-      "Descrição": "SALA CAM - SUPORTE",
       "Turnos": "T2E"
     },
     {
@@ -2029,12 +1999,6 @@
       "Turnos": "T2E"
     },
     {
-      "Local Instalação": "BR01-IES-P18-SALA17",
-      "Arvore Prisma4 / Pro": "RS-ST01-18-00T-SLA18",
-      "Descrição": "COMPRAS - COPA",
-      "Turnos": "T2E"
-    },
-    {
       "Local Instalação": "BR01-IES-P20-BAN042",
       "Arvore Prisma4 / Pro": "RS-ST01-20-00T-WCM01",
       "Descrição": "BANHEIRO AFAS GALPAO - M",
@@ -2209,12 +2173,6 @@
       "Turnos": "T2E"
     },
     {
-      "Local Instalação": "BR01-IES-P43-BAN088",
-      "Arvore Prisma4 / Pro": "RS-ST01-43-00T-WCF01",
-      "Descrição": "BANHEIRO EXPEDICAO - F",
-      "Turnos": "T2E, T3E"
-    },
-    {
       "Local Instalação": "BR01-IES-P43-SALA04",
       "Arvore Prisma4 / Pro": "RS-ST01-43-00T-SLA05",
       "Descrição": "EXPEDICAO - COPA",
@@ -2302,12 +2260,6 @@
       "Local Instalação": "BR01-IES-P52-SALA05",
       "Arvore Prisma4 / Pro": "RS-ST01-52-00T-SLA03",
       "Descrição": "SALA SUPERVISAO",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P52-SALA06",
-      "Arvore Prisma4 / Pro": "RS-ST01-52-00T-SLA04",
-      "Descrição": "SALA CAM - SUPORTE",
       "Turnos": "T2E"
     },
     {
