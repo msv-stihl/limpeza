@@ -165,12 +165,6 @@
       "Turnos": "T2E"
     },
     {
-      "Local Instalação": "BR01-IES-P11-BAN019",
-      "Arvore Prisma4 / Pro": "RS-ST01-11-00T-WCM01",
-      "Descrição": "BANHEIRO FUNDICAO GRAVIDADE - M",
-      "Turnos": "T2, T3"
-    },
-    {
       "Local Instalação": "BR01-IES-P11-BAN020",
       "Arvore Prisma4 / Pro": "RS-ST01-11-00T-WCF01",
       "Descrição": "BANHEIRO FUNDICAO GRAVIDADE - F",
@@ -249,12 +243,6 @@
       "Turnos": "T2E"
     },
     {
-      "Local Instalação": "BR01-IES-P18-BAN039",
-      "Arvore Prisma4 / Pro": "RS-ST01-18-00T-WCF01",
-      "Descrição": "BANHEIRO COMPRAS / PLANEJ - F",
-      "Turnos": "T2E"
-    },
-    {
       "Local Instalação": "BR01-IES-P18-SALA05",
       "Arvore Prisma4 / Pro": "RS-ST01-18-00T-SLA07",
       "Descrição": "PRESIDENCIA - SALA VP MARKETING",
@@ -330,12 +318,6 @@
       "Local Instalação": "BR01-IES-P27-BAN049",
       "Arvore Prisma4 / Pro": "RS-ST01-27-00T-WCM02",
       "Descrição": "BANHEIRO CENTRAL DE SERVICOS - M",
-      "Turnos": "T1, T2, T3"
-    },
-    {
-      "Local Instalação": "BR01-IES-P27-BAN050",
-      "Arvore Prisma4 / Pro": "RS-ST01-27-00T-WCF01",
-      "Descrição": "BANHEIRO CENTRAL DE SERVICOS - F",
       "Turnos": "T1, T2, T3"
     },
     {
@@ -501,12 +483,6 @@
       "Turnos": "T2E, T3E"
     },
     {
-      "Local Instalação": "BR01-IES-P43-BAN089",
-      "Arvore Prisma4 / Pro": "RS-ST01-43-00T-WCF02",
-      "Descrição": "BANHEIRO EMBALAGEM - F",
-      "Turnos": "T2E, T3E"
-    },
-    {
       "Local Instalação": "BR01-IES-P43-SALA04",
       "Arvore Prisma4 / Pro": "RS-ST01-43-00T-SLA05",
       "Descrição": "EXPEDICAO - COPA",
@@ -516,24 +492,6 @@
       "Local Instalação": "BR01-IES-P49-BAN100",
       "Arvore Prisma4 / Pro": "RS-ST01-49-00T-WCM01",
       "Descrição": "BANHEIRO VESTIARIO TERREO - M",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P49-BAN103",
-      "Arvore Prisma4 / Pro": "RS-ST01-49-04P-WCF01",
-      "Descrição": "BANHEIRO ENG PRODUTO 4o ANDAR - F",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P49-BAN104",
-      "Arvore Prisma4 / Pro": "RS-ST01-49-04P-WPU01",
-      "Descrição": "BANHEIRO ENG PRODUTO 4o ANDAR - C",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P49-BAN105",
-      "Arvore Prisma4 / Pro": "RS-ST01-49-04P-WCM01",
-      "Descrição": "BANHEIRO ENG PRODUTO 4o ANDAR - M",
       "Turnos": "T2E"
     },
     {
@@ -2095,12 +2053,6 @@
       "Turnos": "T2E"
     },
     {
-      "Local Instalação": "BR01-IES-P18-BAN039",
-      "Arvore Prisma4 / Pro": "RS-ST01-18-00T-WCF01",
-      "Descrição": "BANHEIRO COMPRAS / PLANEJ - F",
-      "Turnos": "T2E"
-    },
-    {
       "Local Instalação": "BR01-IES-P18-SALA05",
       "Arvore Prisma4 / Pro": "RS-ST01-18-00T-SLA07",
       "Descrição": "PRESIDENCIA - SALA VP MARKETING",
@@ -2329,12 +2281,6 @@
       "Turnos": "T2E, T3E"
     },
     {
-      "Local Instalação": "BR01-IES-P43-BAN089",
-      "Arvore Prisma4 / Pro": "RS-ST01-43-00T-WCF02",
-      "Descrição": "BANHEIRO EMBALAGEM - F",
-      "Turnos": "T2E, T3E"
-    },
-    {
       "Local Instalação": "BR01-IES-P43-SALA04",
       "Arvore Prisma4 / Pro": "RS-ST01-43-00T-SLA05",
       "Descrição": "EXPEDICAO - COPA",
@@ -2344,24 +2290,6 @@
       "Local Instalação": "BR01-IES-P49-BAN100",
       "Arvore Prisma4 / Pro": "RS-ST01-49-00T-WCM01",
       "Descrição": "BANHEIRO VESTIARIO TERREO - M",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P49-BAN103",
-      "Arvore Prisma4 / Pro": "RS-ST01-49-04P-WCF01",
-      "Descrição": "BANHEIRO ENG PRODUTO 4o ANDAR - F",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P49-BAN104",
-      "Arvore Prisma4 / Pro": "RS-ST01-49-04P-WPU01",
-      "Descrição": "BANHEIRO ENG PRODUTO 4o ANDAR - C",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P49-BAN105",
-      "Arvore Prisma4 / Pro": "RS-ST01-49-04P-WCM01",
-      "Descrição": "BANHEIRO ENG PRODUTO 4o ANDAR - M",
       "Turnos": "T2E"
     },
     {
