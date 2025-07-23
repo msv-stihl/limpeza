@@ -177,12 +177,6 @@
       "Turnos": "T2, T3"
     },
     {
-      "Local Instalação": "BR01-IES-P11-SALA15",
-      "Arvore Prisma4 / Pro": "RS-ST01-11-00T-SLA08",
-      "Descrição": "SALA LABORATORIO MATERIAIS QUIMICOS I",
-      "Turnos": "T2E"
-    },
-    {
       "Local Instalação": "BR01-IES-P11-SALA53",
       "Arvore Prisma4 / Pro": "RS-ST01-11-01P-SLA24",
       "Descrição": "PEO - COPA",
@@ -300,12 +294,6 @@
       "Local Instalação": "BR01-IES-P18-SALA17",
       "Arvore Prisma4 / Pro": "RS-ST01-18-00T-SLA18",
       "Descrição": "COMPRAS - COPA",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P18-SALA18",
-      "Arvore Prisma4 / Pro": "RS-ST01-18-00T-SLA19",
-      "Descrição": "HALL DE ENTRADA",
       "Turnos": "T2E"
     },
     {
@@ -435,18 +423,6 @@
       "Turnos": "T2E"
     },
     {
-      "Local Instalação": "BR01-IES-P28-BAN056",
-      "Arvore Prisma4 / Pro": "RS-ST01-28-00T-WCM02",
-      "Descrição": "BANHEIRO USINAGEM CILINDROS - M",
-      "Turnos": "T1, T2, T3"
-    },
-    {
-      "Local Instalação": "BR01-IES-P31-BAN069",
-      "Arvore Prisma4 / Pro": "RS-ST01-31-00T-WCF02",
-      "Descrição": "BANHEIRO BRUNIMENTO SUL - F",
-      "Turnos": "T1, T2, T3"
-    },
-    {
       "Local Instalação": "BR01-IES-P31-BAN071",
       "Arvore Prisma4 / Pro": "RS-ST01-31-00T-WCF03",
       "Descrição": "BANHEIRO BRUNIMENTO NORTE - F",
@@ -531,12 +507,6 @@
       "Turnos": "T2E, T3E"
     },
     {
-      "Local Instalação": "BR01-IES-P43-BAN132",
-      "Arvore Prisma4 / Pro": "RS-ST01-43-00T-WCM03",
-      "Descrição": "BANHEIRO WRS P43B - M",
-      "Turnos": "T2E, T3E"
-    },
-    {
       "Local Instalação": "BR01-IES-P43-SALA04",
       "Arvore Prisma4 / Pro": "RS-ST01-43-00T-SLA05",
       "Descrição": "EXPEDICAO - COPA",
@@ -546,12 +516,6 @@
       "Local Instalação": "BR01-IES-P49-BAN100",
       "Arvore Prisma4 / Pro": "RS-ST01-49-00T-WCM01",
       "Descrição": "BANHEIRO VESTIARIO TERREO - M",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P49-BAN102",
-      "Arvore Prisma4 / Pro": "RS-ST01-49-02P-WCM01",
-      "Descrição": "BANHEIRO ZPT 2o ANDAR - M",
       "Turnos": "T2E"
     },
     {
@@ -2059,12 +2023,6 @@
       "Turnos": "T2E"
     },
     {
-      "Local Instalação": "BR01-IES-P11-SALA15",
-      "Arvore Prisma4 / Pro": "RS-ST01-11-00T-SLA08",
-      "Descrição": "SALA LABORATORIO MATERIAIS QUIMICOS I",
-      "Turnos": "T2E"
-    },
-    {
       "Local Instalação": "BR01-IES-P11-SALA53",
       "Arvore Prisma4 / Pro": "RS-ST01-11-01P-SLA24",
       "Descrição": "PEO - COPA",
@@ -2182,12 +2140,6 @@
       "Local Instalação": "BR01-IES-P18-SALA17",
       "Arvore Prisma4 / Pro": "RS-ST01-18-00T-SLA18",
       "Descrição": "COMPRAS - COPA",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P18-SALA18",
-      "Arvore Prisma4 / Pro": "RS-ST01-18-00T-SLA19",
-      "Descrição": "HALL DE ENTRADA",
       "Turnos": "T2E"
     },
     {
@@ -2383,12 +2335,6 @@
       "Turnos": "T2E, T3E"
     },
     {
-      "Local Instalação": "BR01-IES-P43-BAN132",
-      "Arvore Prisma4 / Pro": "RS-ST01-43-00T-WCM03",
-      "Descrição": "BANHEIRO WRS P43B - M",
-      "Turnos": "T2E, T3E"
-    },
-    {
       "Local Instalação": "BR01-IES-P43-SALA04",
       "Arvore Prisma4 / Pro": "RS-ST01-43-00T-SLA05",
       "Descrição": "EXPEDICAO - COPA",
@@ -2398,12 +2344,6 @@
       "Local Instalação": "BR01-IES-P49-BAN100",
       "Arvore Prisma4 / Pro": "RS-ST01-49-00T-WCM01",
       "Descrição": "BANHEIRO VESTIARIO TERREO - M",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P49-BAN102",
-      "Arvore Prisma4 / Pro": "RS-ST01-49-02P-WCM01",
-      "Descrição": "BANHEIRO ZPT 2o ANDAR - M",
       "Turnos": "T2E"
     },
     {
