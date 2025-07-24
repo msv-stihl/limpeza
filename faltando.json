@@ -87,12 +87,6 @@
       "Turnos": "T2E"
     },
     {
-      "Local Instalação": "BR01-IES-P04-SALA03",
-      "Arvore Prisma4 / Pro": "RS-ST01-04-00T-SLA03",
-      "Descrição": "CONTROLADORIA - SALA REUNIAO II",
-      "Turnos": "T2E"
-    },
-    {
       "Local Instalação": "BR01-IES-P04-SALA05",
       "Arvore Prisma4 / Pro": "RS-ST01-04-00T-SLA05",
       "Descrição": "FINANCEIRO - SALA GERENCIA",
@@ -126,12 +120,6 @@
       "Local Instalação": "BR01-IES-P04-SALA10",
       "Arvore Prisma4 / Pro": "RS-ST01-04-00T-SLA10",
       "Descrição": "COPA",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P04-SALA11",
-      "Arvore Prisma4 / Pro": "RS-ST01-04-00T-SLA11",
-      "Descrição": "CONTROLADORIA - SALA GERENCIA",
       "Turnos": "T2E"
     },
     {
@@ -510,24 +498,6 @@
       "Local Instalação": "BR01-IES-P49-SALA03",
       "Arvore Prisma4 / Pro": "RS-ST01-49-00T-SLA04",
       "Descrição": "TERREO - OFICINA TESTE DINAMICO E CAMPO",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P49-SALA26",
-      "Arvore Prisma4 / Pro": "RS-ST01-49-01P-SLA01",
-      "Descrição": "1o ANDAR - HALL DE ENTRADA",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P49-SALA30",
-      "Arvore Prisma4 / Pro": "RS-ST01-49-02P-SLA01",
-      "Descrição": "2o ANDAR - HALL DE ENTRADA",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P49-SALA32",
-      "Arvore Prisma4 / Pro": "RS-ST01-49-02P-SLA03",
-      "Descrição": "2o ANDAR - OFICINA DURABILIDADE E FUNCAO",
       "Turnos": "T2E"
     },
     {
@@ -1705,12 +1675,6 @@
       "Turnos": "T2E"
     },
     {
-      "Local Instalação": "BR01-IES-P04-SALA03",
-      "Arvore Prisma4 / Pro": "RS-ST01-04-00T-SLA03",
-      "Descrição": "CONTROLADORIA - SALA REUNIAO II",
-      "Turnos": "T2E"
-    },
-    {
       "Local Instalação": "BR01-IES-P04-SALA05",
       "Arvore Prisma4 / Pro": "RS-ST01-04-00T-SLA05",
       "Descrição": "FINANCEIRO - SALA GERENCIA",
@@ -1744,12 +1708,6 @@
       "Local Instalação": "BR01-IES-P04-SALA10",
       "Arvore Prisma4 / Pro": "RS-ST01-04-00T-SLA10",
       "Descrição": "COPA",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P04-SALA11",
-      "Arvore Prisma4 / Pro": "RS-ST01-04-00T-SLA11",
-      "Descrição": "CONTROLADORIA - SALA GERENCIA",
       "Turnos": "T2E"
     },
     {
@@ -2122,24 +2080,6 @@
       "Local Instalação": "BR01-IES-P49-SALA03",
       "Arvore Prisma4 / Pro": "RS-ST01-49-00T-SLA04",
       "Descrição": "TERREO - OFICINA TESTE DINAMICO E CAMPO",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P49-SALA26",
-      "Arvore Prisma4 / Pro": "RS-ST01-49-01P-SLA01",
-      "Descrição": "1o ANDAR - HALL DE ENTRADA",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P49-SALA30",
-      "Arvore Prisma4 / Pro": "RS-ST01-49-02P-SLA01",
-      "Descrição": "2o ANDAR - HALL DE ENTRADA",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P49-SALA32",
-      "Arvore Prisma4 / Pro": "RS-ST01-49-02P-SLA03",
-      "Descrição": "2o ANDAR - OFICINA DURABILIDADE E FUNCAO",
       "Turnos": "T2E"
     },
     {
