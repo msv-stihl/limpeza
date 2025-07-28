@@ -129,24 +129,6 @@
   ],
   "T2": [
     {
-      "Local Instalação": "BR01-IES-P01-BAN002",
-      "Arvore Prisma4 / Pro": "RS-ST01-01-00T-WCM02",
-      "Descrição": "BANHEIRO VIRABREQUIM - M",
-      "Turnos": "T2, T3"
-    },
-    {
-      "Local Instalação": "BR01-IES-P01-BAN003",
-      "Arvore Prisma4 / Pro": "RS-ST01-01-00T-WCM03",
-      "Descrição": "BANHEIRO VIRABREQUIM - M",
-      "Turnos": "T2, T3"
-    },
-    {
-      "Local Instalação": "BR01-IES-P01-BAN004",
-      "Arvore Prisma4 / Pro": "RS-ST01-01-00T-WCF01",
-      "Descrição": "BANHEIRO VIRABREQUIM - F",
-      "Turnos": "T2, T3"
-    },
-    {
       "Local Instalação": "BR01-IES-P01-SALA02",
       "Arvore Prisma4 / Pro": "RS-ST01-01-00T-SLA01",
       "Descrição": "SALA QUARENTENA",
@@ -252,12 +234,6 @@
       "Local Instalação": "BR01-IES-P11-BAN019",
       "Arvore Prisma4 / Pro": "RS-ST01-11-00T-WCM01",
       "Descrição": "BANHEIRO FUNDICAO GRAVIDADE - M",
-      "Turnos": "T2, T3"
-    },
-    {
-      "Local Instalação": "BR01-IES-P11-BAN020",
-      "Arvore Prisma4 / Pro": "RS-ST01-11-00T-WCF01",
-      "Descrição": "BANHEIRO FUNDICAO GRAVIDADE - F",
       "Turnos": "T2, T3"
     },
     {
@@ -372,12 +348,6 @@
       "Local Instalação": "BR01-IES-P20-QUIO01",
       "Arvore Prisma4 / Pro": "",
       "Descrição": "QUIOSQUE",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P20-SALA03",
-      "Arvore Prisma4 / Pro": "RS-ST01-20-00T-SLA03",
-      "Descrição": "COZINHA / CHURRASQUEIRA",
       "Turnos": "T2E"
     },
     {
@@ -499,12 +469,6 @@
       "Arvore Prisma4 / Pro": "RS-ST01-42-00T-SLA03",
       "Descrição": "PORTARIA 3 - SALA CLAVICULARIO",
       "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P43-BAN088",
-      "Arvore Prisma4 / Pro": "RS-ST01-43-00T-WCF01",
-      "Descrição": "BANHEIRO EXPEDICAO - F",
-      "Turnos": "T2E, T3E"
     },
     {
       "Local Instalação": "BR01-IES-P49-SALA01",
@@ -2095,12 +2059,6 @@
       "Turnos": "T2E"
     },
     {
-      "Local Instalação": "BR01-IES-P20-SALA03",
-      "Arvore Prisma4 / Pro": "RS-ST01-20-00T-SLA03",
-      "Descrição": "COZINHA / CHURRASQUEIRA",
-      "Turnos": "T2E"
-    },
-    {
       "Local Instalação": "BR01-IES-P20-SALA05",
       "Arvore Prisma4 / Pro": "RS-ST01-20-00T-SLA05",
       "Descrição": "GALPAO PRINCIPAL",
@@ -2219,12 +2177,6 @@
       "Arvore Prisma4 / Pro": "RS-ST01-42-00T-SLA03",
       "Descrição": "PORTARIA 3 - SALA CLAVICULARIO",
       "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P43-BAN088",
-      "Arvore Prisma4 / Pro": "RS-ST01-43-00T-WCF01",
-      "Descrição": "BANHEIRO EXPEDICAO - F",
-      "Turnos": "T2E, T3E"
     },
     {
       "Local Instalação": "BR01-IES-P49-SALA01",
