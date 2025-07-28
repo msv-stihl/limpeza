@@ -303,12 +303,6 @@
       "Turnos": "T2, T3"
     },
     {
-      "Local Instalação": "BR01-IES-P11-BAN023",
-      "Arvore Prisma4 / Pro": "RS-ST01-11-01P-WCF02",
-      "Descrição": "BANHEIRO MELHORIA CONTINUA - F",
-      "Turnos": "T2E"
-    },
-    {
       "Local Instalação": "BR01-IES-P11-SALA15",
       "Arvore Prisma4 / Pro": "RS-ST01-11-00T-SLA08",
       "Descrição": "SALA LABORATORIO MATERIAIS QUIMICOS I",
@@ -378,12 +372,6 @@
       "Local Instalação": "BR01-IES-P15-SALA07",
       "Arvore Prisma4 / Pro": "RS-ST01-15-00T-SLA07",
       "Descrição": "PORTARIA 2 - SALA DE ESPERA",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P15-SALA09",
-      "Arvore Prisma4 / Pro": "RS-ST01-15-00T-SLA09",
-      "Descrição": "LOGISTICA - SALA SUPERVISAO",
       "Turnos": "T2E"
     },
     {
@@ -933,12 +921,6 @@
       "Turnos": "T2E"
     },
     {
-      "Local Instalação": "BR01-IES-P49-SALA66",
-      "Arvore Prisma4 / Pro": "RS-ST01-49-04P-SLA06",
-      "Descrição": "4o ANDAR - HALL DE ENTRADA",
-      "Turnos": "T2E"
-    },
-    {
       "Local Instalação": "BR01-IES-P49-SALA73",
       "Arvore Prisma4 / Pro": "RS-ST01-49-05P-SLA01",
       "Descrição": "5o ANDAR - HALL DE ENTRADA",
@@ -996,12 +978,6 @@
       "Local Instalação": "BR01-IES-P52-BAN119",
       "Arvore Prisma4 / Pro": "RS-ST01-52-01P-WCF02",
       "Descrição": "BANHEIRO MEZANINO - F",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P52-COPA01",
-      "Arvore Prisma4 / Pro": "RS-ST01-52-01P-COP01",
-      "Descrição": "COPA MEZANINO",
       "Turnos": "T2E"
     },
     {
@@ -2437,12 +2413,6 @@
       "Turnos": "T2E"
     },
     {
-      "Local Instalação": "BR01-IES-P11-BAN023",
-      "Arvore Prisma4 / Pro": "RS-ST01-11-01P-WCF02",
-      "Descrição": "BANHEIRO MELHORIA CONTINUA - F",
-      "Turnos": "T2E"
-    },
-    {
       "Local Instalação": "BR01-IES-P11-SALA15",
       "Arvore Prisma4 / Pro": "RS-ST01-11-00T-SLA08",
       "Descrição": "SALA LABORATORIO MATERIAIS QUIMICOS I",
@@ -2512,12 +2482,6 @@
       "Local Instalação": "BR01-IES-P15-SALA07",
       "Arvore Prisma4 / Pro": "RS-ST01-15-00T-SLA07",
       "Descrição": "PORTARIA 2 - SALA DE ESPERA",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P15-SALA09",
-      "Arvore Prisma4 / Pro": "RS-ST01-15-00T-SLA09",
-      "Descrição": "LOGISTICA - SALA SUPERVISAO",
       "Turnos": "T2E"
     },
     {
@@ -3001,12 +2965,6 @@
       "Turnos": "T2E"
     },
     {
-      "Local Instalação": "BR01-IES-P49-SALA66",
-      "Arvore Prisma4 / Pro": "RS-ST01-49-04P-SLA06",
-      "Descrição": "4o ANDAR - HALL DE ENTRADA",
-      "Turnos": "T2E"
-    },
-    {
       "Local Instalação": "BR01-IES-P49-SALA73",
       "Arvore Prisma4 / Pro": "RS-ST01-49-05P-SLA01",
       "Descrição": "5o ANDAR - HALL DE ENTRADA",
@@ -3040,12 +2998,6 @@
       "Local Instalação": "BR01-IES-P52-BAN119",
       "Arvore Prisma4 / Pro": "RS-ST01-52-01P-WCF02",
       "Descrição": "BANHEIRO MEZANINO - F",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P52-COPA01",
-      "Arvore Prisma4 / Pro": "RS-ST01-52-01P-COP01",
-      "Descrição": "COPA MEZANINO",
       "Turnos": "T2E"
     },
     {
