@@ -5,6 +5,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const loading = document.getElementById("loading");
   const mensagem = document.getElementById("mensagem");
 
+  const apiURL = "https://api.github.com/repos/msv-stihl/limpeza/contents/faltando.json?ref=main";
+  const GITHUB_TOKEN = "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";
+
   if (form) {
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
@@ -14,7 +17,13 @@ document.addEventListener("DOMContentLoaded", () => {
       loading.classList.remove("hidden");
 
       try {
-        const res = await fetch("https://raw.githubusercontent.com/msv-stihl/limpeza/refs/heads/main/faltando.json");
+        const res = await fetch(apiURL, {
+          headers: {
+            "Accept": "application/vnd.github.v3.raw",
+            "Authorization": `token ${GITHUB_TOKEN}`
+          }
+        }
+        );
         const data = await res.json();
         const lista = data[turno] || [];
 
