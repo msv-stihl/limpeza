@@ -39,93 +39,9 @@
   ],
   "T2": [
     {
-      "Local Instalação": "BR01-IES-P01-BAN001",
-      "Arvore Prisma4 / Pro": "RS-ST01-01-00T-WCM01",
-      "Descrição": "BANHEIRO PLASTICO - M",
-      "Turnos": "T2, T3"
-    },
-    {
-      "Local Instalação": "BR01-IES-P01-BAN002",
-      "Arvore Prisma4 / Pro": "RS-ST01-01-00T-WCM02",
-      "Descrição": "BANHEIRO VIRABREQUIM - M",
-      "Turnos": "T2, T3"
-    },
-    {
-      "Local Instalação": "BR01-IES-P01-BAN003",
-      "Arvore Prisma4 / Pro": "RS-ST01-01-00T-WCM03",
-      "Descrição": "BANHEIRO VIRABREQUIM - M",
-      "Turnos": "T2, T3"
-    },
-    {
-      "Local Instalação": "BR01-IES-P01-BAN004",
-      "Arvore Prisma4 / Pro": "RS-ST01-01-00T-WCF01",
-      "Descrição": "BANHEIRO VIRABREQUIM - F",
-      "Turnos": "T2, T3"
-    },
-    {
       "Local Instalação": "BR01-IES-P02-BAN006",
       "Arvore Prisma4 / Pro": "RS-ST01-02-00T-WCU01",
       "Descrição": "BANHEIRO PORTARIA 1 - VIGILANTES",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P02-BAN007",
-      "Arvore Prisma4 / Pro": "RS-ST01-02-00T-WCU02",
-      "Descrição": "BANHEIRO PORTARIA 1 - RECEPCAO",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P02-SALA01",
-      "Arvore Prisma4 / Pro": "RS-ST01-02-00T-SLA01",
-      "Descrição": "SALA DE ESPERA",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P02-SALA02",
-      "Arvore Prisma4 / Pro": "RS-ST01-02-00T-SLA02",
-      "Descrição": "SALA RECEPCAO",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P04-SALA02",
-      "Arvore Prisma4 / Pro": "RS-ST01-04-00T-SLA12",
-      "Descrição": "CONTABILIDADE - SALA REUNIAO I",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P04-SALA03",
-      "Arvore Prisma4 / Pro": "RS-ST01-04-00T-SLA03",
-      "Descrição": "CONTROLADORIA - SALA REUNIAO II",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P04-SALA06",
-      "Arvore Prisma4 / Pro": "RS-ST01-04-00T-SLA06",
-      "Descrição": "CONTABILIDADE - SALA GERENCIA",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P04-SALA07",
-      "Arvore Prisma4 / Pro": "RS-ST01-04-00T-SLA07",
-      "Descrição": "JURIDICO - SALA ADM",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P04-SALA08",
-      "Arvore Prisma4 / Pro": "RS-ST01-04-00T-SLA08",
-      "Descrição": "CONTROLADORIA - SALA ADM",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P04-SALA09",
-      "Arvore Prisma4 / Pro": "RS-ST01-04-00T-SLA09",
-      "Descrição": "FINANCEIRO / CONTABILIDADE - SALA ADM",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P04-SALA11",
-      "Arvore Prisma4 / Pro": "RS-ST01-04-00T-SLA11",
-      "Descrição": "CONTROLADORIA - SALA GERENCIA",
       "Turnos": "T2E"
     },
     {
@@ -159,51 +75,9 @@
       "Turnos": "T2, T3"
     },
     {
-      "Local Instalação": "BR01-IES-P11-SALA04",
-      "Arvore Prisma4 / Pro": "RS-ST01-11-00T-SLA01",
-      "Descrição": "SALA FERRAMENTARIA ZFG",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P11-SALA30",
-      "Arvore Prisma4 / Pro": "RS-ST01-11-00T-SLA13",
-      "Descrição": "INHAUS - SALA ADM",
-      "Turnos": "T2E"
-    },
-    {
       "Local Instalação": "BR01-IES-P11-SALA38",
       "Arvore Prisma4 / Pro": "RS-ST01-11-00T-SLA15",
       "Descrição": "SALA LABORATORIO MECANICA FINA",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P11-SALA39",
-      "Arvore Prisma4 / Pro": "RS-ST01-11-00T-SLA16",
-      "Descrição": "SALA LABORATORIO CALIBRACAO",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P11-SALA40",
-      "Arvore Prisma4 / Pro": "RS-ST01-11-00T-SLA17",
-      "Descrição": "SALA LABORATORIO HIDRAULICA",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P11-SALA42",
-      "Arvore Prisma4 / Pro": "RS-ST01-11-00T-SLA19",
-      "Descrição": "SALA LABORATORIO ELETRONICA E CALIBRACAO",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P11-SALA43",
-      "Arvore Prisma4 / Pro": "RS-ST01-11-00T-SLA20",
-      "Descrição": "SALA LABORATORIO ZFG",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P11-SALA49",
-      "Arvore Prisma4 / Pro": "RS-ST01-11-00T-SLA21",
-      "Descrição": "SALA ENGENHARIA PROCESSOS",
       "Turnos": "T2E"
     },
     {
@@ -219,12 +93,6 @@
       "Turnos": "T2E"
     },
     {
-      "Local Instalação": "BR01-IES-P15-BAN028",
-      "Arvore Prisma4 / Pro": "RS-ST01-15-00T-WCU02",
-      "Descrição": "BANHEIRO PORTARIA 2 - RECEPCAO",
-      "Turnos": "T2E"
-    },
-    {
       "Local Instalação": "BR01-IES-P15-BAN029",
       "Arvore Prisma4 / Pro": "RS-ST01-15-00T-WPU01",
       "Descrição": "BANHEIRO PORTARIA 2 - C",
@@ -237,39 +105,15 @@
       "Turnos": "T2E"
     },
     {
-      "Local Instalação": "BR01-IES-P15-SALA06",
-      "Arvore Prisma4 / Pro": "RS-ST01-15-00T-SLA06",
-      "Descrição": "PORTARIA 2 - SALA RECEBIMENTO FISCAL",
-      "Turnos": "T2E"
-    },
-    {
       "Local Instalação": "BR01-IES-P15-SALA07",
       "Arvore Prisma4 / Pro": "RS-ST01-15-00T-SLA07",
       "Descrição": "PORTARIA 2 - SALA DE ESPERA",
       "Turnos": "T2E"
     },
     {
-      "Local Instalação": "BR01-IES-P15-SALA11",
-      "Arvore Prisma4 / Pro": "RS-ST01-15-00T-SLA12",
-      "Descrição": "PQR - SALA LABORATORIO DIMENSIONAL",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P15-SALA14",
-      "Arvore Prisma4 / Pro": "RS-ST01-15-00T-SLA15",
-      "Descrição": "PQR - SALA ADM",
-      "Turnos": "T2E"
-    },
-    {
       "Local Instalação": "BR01-IES-P15-SALA15",
       "Arvore Prisma4 / Pro": "RS-ST01-15-00T-SLA11",
       "Descrição": "LOGISTICA - RECEBIMENTO",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P15-SALA17",
-      "Arvore Prisma4 / Pro": "RS-ST01-15-00T-SLA19",
-      "Descrição": "PQR - SALA REUNIAO I",
       "Turnos": "T2E"
     },
     {
@@ -288,12 +132,6 @@
       "Local Instalação": "BR01-IES-P18-SALA05",
       "Arvore Prisma4 / Pro": "RS-ST01-18-00T-SLA07",
       "Descrição": "PRESIDENCIA - SALA VP MARKETING",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P18-SALA09",
-      "Arvore Prisma4 / Pro": "RS-ST01-18-00T-SLA09",
-      "Descrição": "COMPRAS - SALA ADM",
       "Turnos": "T2E"
     },
     {
@@ -337,12 +175,6 @@
       "Arvore Prisma4 / Pro": "RS-ST01-31-00T-WCF02",
       "Descrição": "BANHEIRO BRUNIMENTO SUL - F",
       "Turnos": "T1, T2, T3"
-    },
-    {
-      "Local Instalação": "BR01-IES-P32-BAN080",
-      "Arvore Prisma4 / Pro": "RS-ST01-32-00T-WCM01",
-      "Descrição": "BANHEIRO ETE - M",
-      "Turnos": "T2E"
     },
     {
       "Local Instalação": "BR01-IES-P38-BAN081",
@@ -393,21 +225,9 @@
       "Turnos": "T2E"
     },
     {
-      "Local Instalação": "BR01-IES-P42-BAN086",
-      "Arvore Prisma4 / Pro": "RS-ST01-42-00T-WPU01",
-      "Descrição": "BANHEIRO PORTARIA 3 - C",
-      "Turnos": "T2E"
-    },
-    {
       "Local Instalação": "BR01-IES-P42-SALA03",
       "Arvore Prisma4 / Pro": "RS-ST01-42-00T-SLA03",
       "Descrição": "PORTARIA 3 - SALA CLAVICULARIO",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P43-SALA01",
-      "Arvore Prisma4 / Pro": "RS-ST01-43-00T-SLA01",
-      "Descrição": "HALL DE ENTRADA",
       "Turnos": "T2E"
     },
     {
@@ -423,24 +243,6 @@
       "Turnos": "T2E"
     },
     {
-      "Local Instalação": "BR01-IES-P43-SALA54",
-      "Arvore Prisma4 / Pro": "RS-ST01-43-00T-SLA10",
-      "Descrição": "SALA EMPRESTIMO DE MAQUINAS",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P49-SALA01",
-      "Arvore Prisma4 / Pro": "RS-ST01-49-00T-SLA01",
-      "Descrição": "TERREO - HALL DE ENTRADA",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P49-SALA03",
-      "Arvore Prisma4 / Pro": "RS-ST01-49-00T-SLA04",
-      "Descrição": "TERREO - OFICINA TESTE DINAMICO E CAMPO",
-      "Turnos": "T2E"
-    },
-    {
       "Local Instalação": "BR01-IES-P49-SALA15",
       "Arvore Prisma4 / Pro": "RS-ST01-49-00T-SLA13",
       "Descrição": "TERREO - RECEBIMENTO DE MERCADORIAS",
@@ -450,30 +252,6 @@
       "Local Instalação": "BR01-IES-P49-SALA26",
       "Arvore Prisma4 / Pro": "RS-ST01-49-01P-SLA01",
       "Descrição": "1o ANDAR - HALL DE ENTRADA",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P49-SALA30",
-      "Arvore Prisma4 / Pro": "RS-ST01-49-02P-SLA01",
-      "Descrição": "2o ANDAR - HALL DE ENTRADA",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P52-BAN117",
-      "Arvore Prisma4 / Pro": "RS-ST01-52-00T-WCF01",
-      "Descrição": "BANHEIRO TERREO - F / PNE",
-      "Turnos": "T1, T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P52-BAN118",
-      "Arvore Prisma4 / Pro": "RS-ST01-52-01P-WCM02",
-      "Descrição": "BANHEIRO MEZANINO - M",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P52-BAN119",
-      "Arvore Prisma4 / Pro": "RS-ST01-52-01P-WCF02",
-      "Descrição": "BANHEIRO MEZANINO - F",
       "Turnos": "T2E"
     },
     {
@@ -989,12 +767,6 @@
       "Turnos": "T2E, T3E"
     },
     {
-      "Local Instalação": "BR01-IES-P43-BAN088",
-      "Arvore Prisma4 / Pro": "RS-ST01-43-00T-WCF01",
-      "Descrição": "BANHEIRO EXPEDICAO - F",
-      "Turnos": "T2E, T3E"
-    },
-    {
       "Local Instalação": "BR01-IES-P43-BAN089",
       "Arvore Prisma4 / Pro": "RS-ST01-43-00T-WCF02",
       "Descrição": "BANHEIRO EMBALAGEM - F",
@@ -1220,12 +992,6 @@
       "Local Instalação": "BR01-IES-P50-BAN109",
       "Arvore Prisma4 / Pro": "RS-ST01-50-00T-WCM01",
       "Descrição": "BANHEIRO PINTURA - M",
-      "Turnos": "T1, T2, T3"
-    },
-    {
-      "Local Instalação": "BR01-IES-P50-BAN110",
-      "Arvore Prisma4 / Pro": "RS-ST01-50-00T-WCF01",
-      "Descrição": "BANHEIRO PINTURA - F",
       "Turnos": "T1, T2, T3"
     },
     {
@@ -1531,72 +1297,6 @@
   ],
   "T2E": [
     {
-      "Local Instalação": "BR01-IES-P02-BAN006",
-      "Arvore Prisma4 / Pro": "RS-ST01-02-00T-WCU01",
-      "Descrição": "BANHEIRO PORTARIA 1 - VIGILANTES",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P02-BAN007",
-      "Arvore Prisma4 / Pro": "RS-ST01-02-00T-WCU02",
-      "Descrição": "BANHEIRO PORTARIA 1 - RECEPCAO",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P02-SALA01",
-      "Arvore Prisma4 / Pro": "RS-ST01-02-00T-SLA01",
-      "Descrição": "SALA DE ESPERA",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P02-SALA02",
-      "Arvore Prisma4 / Pro": "RS-ST01-02-00T-SLA02",
-      "Descrição": "SALA RECEPCAO",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P04-SALA02",
-      "Arvore Prisma4 / Pro": "RS-ST01-04-00T-SLA12",
-      "Descrição": "CONTABILIDADE - SALA REUNIAO I",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P04-SALA03",
-      "Arvore Prisma4 / Pro": "RS-ST01-04-00T-SLA03",
-      "Descrição": "CONTROLADORIA - SALA REUNIAO II",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P04-SALA06",
-      "Arvore Prisma4 / Pro": "RS-ST01-04-00T-SLA06",
-      "Descrição": "CONTABILIDADE - SALA GERENCIA",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P04-SALA07",
-      "Arvore Prisma4 / Pro": "RS-ST01-04-00T-SLA07",
-      "Descrição": "JURIDICO - SALA ADM",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P04-SALA08",
-      "Arvore Prisma4 / Pro": "RS-ST01-04-00T-SLA08",
-      "Descrição": "CONTROLADORIA - SALA ADM",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P04-SALA09",
-      "Arvore Prisma4 / Pro": "RS-ST01-04-00T-SLA09",
-      "Descrição": "FINANCEIRO / CONTABILIDADE - SALA ADM",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P04-SALA11",
-      "Arvore Prisma4 / Pro": "RS-ST01-04-00T-SLA11",
-      "Descrição": "CONTROLADORIA - SALA GERENCIA",
-      "Turnos": "T2E"
-    },
-    {
       "Local Instalação": "BR01-IES-P07-SALA02",
       "Arvore Prisma4 / Pro": "RS-ST01-07-00T-SLA02",
       "Descrição": "MANSERV - SALA ADM",
@@ -1615,51 +1315,9 @@
       "Turnos": "T2E"
     },
     {
-      "Local Instalação": "BR01-IES-P11-SALA04",
-      "Arvore Prisma4 / Pro": "RS-ST01-11-00T-SLA01",
-      "Descrição": "SALA FERRAMENTARIA ZFG",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P11-SALA30",
-      "Arvore Prisma4 / Pro": "RS-ST01-11-00T-SLA13",
-      "Descrição": "INHAUS - SALA ADM",
-      "Turnos": "T2E"
-    },
-    {
       "Local Instalação": "BR01-IES-P11-SALA38",
       "Arvore Prisma4 / Pro": "RS-ST01-11-00T-SLA15",
       "Descrição": "SALA LABORATORIO MECANICA FINA",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P11-SALA39",
-      "Arvore Prisma4 / Pro": "RS-ST01-11-00T-SLA16",
-      "Descrição": "SALA LABORATORIO CALIBRACAO",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P11-SALA40",
-      "Arvore Prisma4 / Pro": "RS-ST01-11-00T-SLA17",
-      "Descrição": "SALA LABORATORIO HIDRAULICA",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P11-SALA42",
-      "Arvore Prisma4 / Pro": "RS-ST01-11-00T-SLA19",
-      "Descrição": "SALA LABORATORIO ELETRONICA E CALIBRACAO",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P11-SALA43",
-      "Arvore Prisma4 / Pro": "RS-ST01-11-00T-SLA20",
-      "Descrição": "SALA LABORATORIO ZFG",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P11-SALA49",
-      "Arvore Prisma4 / Pro": "RS-ST01-11-00T-SLA21",
-      "Descrição": "SALA ENGENHARIA PROCESSOS",
       "Turnos": "T2E"
     },
     {
@@ -1669,33 +1327,9 @@
       "Turnos": "T2E"
     },
     {
-      "Local Instalação": "BR01-IES-P15-BAN027",
-      "Arvore Prisma4 / Pro": "RS-ST01-15-00T-WCU01",
-      "Descrição": "BANHEIRO PORTARIA 2 - VIGILANTES",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P15-BAN028",
-      "Arvore Prisma4 / Pro": "RS-ST01-15-00T-WCU02",
-      "Descrição": "BANHEIRO PORTARIA 2 - RECEPCAO",
-      "Turnos": "T2E"
-    },
-    {
       "Local Instalação": "BR01-IES-P15-BAN029",
       "Arvore Prisma4 / Pro": "RS-ST01-15-00T-WPU01",
       "Descrição": "BANHEIRO PORTARIA 2 - C",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P15-SALA05",
-      "Arvore Prisma4 / Pro": "RS-ST01-15-00T-SLA05",
-      "Descrição": "PORTARIA 2 - SALA RECEPCAO",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P15-SALA06",
-      "Arvore Prisma4 / Pro": "RS-ST01-15-00T-SLA06",
-      "Descrição": "PORTARIA 2 - SALA RECEBIMENTO FISCAL",
       "Turnos": "T2E"
     },
     {
@@ -1705,27 +1339,9 @@
       "Turnos": "T2E"
     },
     {
-      "Local Instalação": "BR01-IES-P15-SALA11",
-      "Arvore Prisma4 / Pro": "RS-ST01-15-00T-SLA12",
-      "Descrição": "PQR - SALA LABORATORIO DIMENSIONAL",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P15-SALA14",
-      "Arvore Prisma4 / Pro": "RS-ST01-15-00T-SLA15",
-      "Descrição": "PQR - SALA ADM",
-      "Turnos": "T2E"
-    },
-    {
       "Local Instalação": "BR01-IES-P15-SALA15",
       "Arvore Prisma4 / Pro": "RS-ST01-15-00T-SLA11",
       "Descrição": "LOGISTICA - RECEBIMENTO",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P15-SALA17",
-      "Arvore Prisma4 / Pro": "RS-ST01-15-00T-SLA19",
-      "Descrição": "PQR - SALA REUNIAO I",
       "Turnos": "T2E"
     },
     {
@@ -1738,24 +1354,6 @@
       "Local Instalação": "BR01-IES-P18-SALA05",
       "Arvore Prisma4 / Pro": "RS-ST01-18-00T-SLA07",
       "Descrição": "PRESIDENCIA - SALA VP MARKETING",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P18-SALA09",
-      "Arvore Prisma4 / Pro": "RS-ST01-18-00T-SLA09",
-      "Descrição": "COMPRAS - SALA ADM",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P20-BAN042",
-      "Arvore Prisma4 / Pro": "RS-ST01-20-00T-WCM01",
-      "Descrição": "BANHEIRO AFAS GALPAO - M",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P20-BAN043",
-      "Arvore Prisma4 / Pro": "RS-ST01-20-00T-WCF01",
-      "Descrição": "BANHEIRO AFAS GALPAO - F",
       "Turnos": "T2E"
     },
     {
@@ -1780,12 +1378,6 @@
       "Local Instalação": "BR01-IES-P27-SALA06",
       "Arvore Prisma4 / Pro": "RS-ST01-27-00T-SLA06",
       "Descrição": "AMBULATORIO - HALL DE ENTRADA",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P32-BAN080",
-      "Arvore Prisma4 / Pro": "RS-ST01-32-00T-WCM01",
-      "Descrição": "BANHEIRO ETE - M",
       "Turnos": "T2E"
     },
     {
@@ -1837,27 +1429,9 @@
       "Turnos": "T2E"
     },
     {
-      "Local Instalação": "BR01-IES-P42-BAN086",
-      "Arvore Prisma4 / Pro": "RS-ST01-42-00T-WPU01",
-      "Descrição": "BANHEIRO PORTARIA 3 - C",
-      "Turnos": "T2E"
-    },
-    {
       "Local Instalação": "BR01-IES-P42-SALA03",
       "Arvore Prisma4 / Pro": "RS-ST01-42-00T-SLA03",
       "Descrição": "PORTARIA 3 - SALA CLAVICULARIO",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P43-SALA01",
-      "Arvore Prisma4 / Pro": "RS-ST01-43-00T-SLA01",
-      "Descrição": "HALL DE ENTRADA",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P43-SALA49",
-      "Arvore Prisma4 / Pro": "RS-ST01-43-00T-SLA07",
-      "Descrição": "EXPEDICAO - HALL DE ENTRADA",
       "Turnos": "T2E"
     },
     {
@@ -1867,57 +1441,9 @@
       "Turnos": "T2E"
     },
     {
-      "Local Instalação": "BR01-IES-P43-SALA54",
-      "Arvore Prisma4 / Pro": "RS-ST01-43-00T-SLA10",
-      "Descrição": "SALA EMPRESTIMO DE MAQUINAS",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P49-SALA01",
-      "Arvore Prisma4 / Pro": "RS-ST01-49-00T-SLA01",
-      "Descrição": "TERREO - HALL DE ENTRADA",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P49-SALA03",
-      "Arvore Prisma4 / Pro": "RS-ST01-49-00T-SLA04",
-      "Descrição": "TERREO - OFICINA TESTE DINAMICO E CAMPO",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P49-SALA15",
-      "Arvore Prisma4 / Pro": "RS-ST01-49-00T-SLA13",
-      "Descrição": "TERREO - RECEBIMENTO DE MERCADORIAS",
-      "Turnos": "T2E"
-    },
-    {
       "Local Instalação": "BR01-IES-P49-SALA26",
       "Arvore Prisma4 / Pro": "RS-ST01-49-01P-SLA01",
       "Descrição": "1o ANDAR - HALL DE ENTRADA",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P49-SALA30",
-      "Arvore Prisma4 / Pro": "RS-ST01-49-02P-SLA01",
-      "Descrição": "2o ANDAR - HALL DE ENTRADA",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P52-BAN117",
-      "Arvore Prisma4 / Pro": "RS-ST01-52-00T-WCF01",
-      "Descrição": "BANHEIRO TERREO - F / PNE",
-      "Turnos": "T1, T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P52-BAN118",
-      "Arvore Prisma4 / Pro": "RS-ST01-52-01P-WCM02",
-      "Descrição": "BANHEIRO MEZANINO - M",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P52-BAN119",
-      "Arvore Prisma4 / Pro": "RS-ST01-52-01P-WCF02",
-      "Descrição": "BANHEIRO MEZANINO - F",
       "Turnos": "T2E"
     },
     {
