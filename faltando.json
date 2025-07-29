@@ -833,18 +833,6 @@
       "Turnos": "T3E"
     },
     {
-      "Local Instalação": "BR01-IES-P43-BAN132",
-      "Arvore Prisma4 / Pro": "RS-ST01-43-00T-WCM03",
-      "Descrição": "BANHEIRO WRS P43B - M",
-      "Turnos": "T2E, T3E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P43-BAN133",
-      "Arvore Prisma4 / Pro": "RS-ST01-43-00T-WCF04",
-      "Descrição": "BANHEIRO WRS P43B - F",
-      "Turnos": "T2E, T3E"
-    },
-    {
       "Local Instalação": "BR01-IES-P43-ELEV01",
       "Arvore Prisma4 / Pro": "RS-ST01-43-00T-SLA08",
       "Descrição": "ELEVADOR SOCIAL",
@@ -987,12 +975,6 @@
       "Arvore Prisma4 / Pro": "RS-ST01-50-00T-WPU01",
       "Descrição": "BANHEIRO MONTAGEM - C",
       "Turnos": "T3E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P50-BAN109",
-      "Arvore Prisma4 / Pro": "RS-ST01-50-00T-WCM01",
-      "Descrição": "BANHEIRO PINTURA - M",
-      "Turnos": "T1, T2, T3"
     },
     {
       "Local Instalação": "BR01-IES-P50-BAN111",
