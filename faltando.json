@@ -459,12 +459,6 @@
       "Turnos": "T2E"
     },
     {
-      "Local Instalação": "BR01-IES-P49-SALA35",
-      "Arvore Prisma4 / Pro": "RS-ST01-49-02P-SLA06",
-      "Descrição": "2o ANDAR - COPA",
-      "Turnos": "T2E"
-    },
-    {
       "Local Instalação": "BR01-IES-P52-BAN117",
       "Arvore Prisma4 / Pro": "RS-ST01-52-00T-WCF01",
       "Descrição": "BANHEIRO TERREO - F / PNE",
@@ -1906,12 +1900,6 @@
       "Local Instalação": "BR01-IES-P49-SALA30",
       "Arvore Prisma4 / Pro": "RS-ST01-49-02P-SLA01",
       "Descrição": "2o ANDAR - HALL DE ENTRADA",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P49-SALA35",
-      "Arvore Prisma4 / Pro": "RS-ST01-49-02P-SLA06",
-      "Descrição": "2o ANDAR - COPA",
       "Turnos": "T2E"
     },
     {
