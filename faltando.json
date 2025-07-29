@@ -87,18 +87,6 @@
       "Turnos": "T2E"
     },
     {
-      "Local Instalação": "BR01-IES-P04-BAN010",
-      "Arvore Prisma4 / Pro": "RS-ST01-04-00T-WCM01",
-      "Descrição": "BANHEIRO FINANCEIRO - M",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P04-BAN011",
-      "Arvore Prisma4 / Pro": "RS-ST01-04-00T-WCF01",
-      "Descrição": "BANHEIRO FINANCEIRO - F",
-      "Turnos": "T2E"
-    },
-    {
       "Local Instalação": "BR01-IES-P04-SALA01",
       "Arvore Prisma4 / Pro": "RS-ST01-04-00T-SLA01",
       "Descrição": "HALL DE ENTRADA",
@@ -195,18 +183,6 @@
       "Turnos": "T2E"
     },
     {
-      "Local Instalação": "BR01-IES-P11-SALA15",
-      "Arvore Prisma4 / Pro": "RS-ST01-11-00T-SLA08",
-      "Descrição": "SALA LABORATORIO MATERIAIS QUIMICOS I",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P11-SALA16",
-      "Arvore Prisma4 / Pro": "RS-ST01-11-00T-SLA04",
-      "Descrição": "SALA LABORATORIO METALURGICO",
-      "Turnos": "T2E"
-    },
-    {
       "Local Instalação": "BR01-IES-P11-SALA24",
       "Arvore Prisma4 / Pro": "RS-ST01-11-00T-SLA05",
       "Descrição": "SALA SUPERVISAO GRAVIDADE",
@@ -279,12 +255,6 @@
       "Turnos": "T2E"
     },
     {
-      "Local Instalação": "BR01-IES-P15-SALA01",
-      "Arvore Prisma4 / Pro": "RS-ST01-15-00T-SLA01",
-      "Descrição": "LOGISTICA - SALA ADM",
-      "Turnos": "T2E"
-    },
-    {
       "Local Instalação": "BR01-IES-P15-SALA05",
       "Arvore Prisma4 / Pro": "RS-ST01-15-00T-SLA05",
       "Descrição": "PORTARIA 2 - SALA RECEPCAO",
@@ -354,18 +324,6 @@
       "Local Instalação": "BR01-IES-P18-BAN039",
       "Arvore Prisma4 / Pro": "RS-ST01-18-00T-WCF01",
       "Descrição": "BANHEIRO COMPRAS / PLANEJ - F",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P18-BAN041",
-      "Arvore Prisma4 / Pro": "RS-ST01-18-00T-WCF02",
-      "Descrição": "BANHEIRO PRESIDENCIA - F",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P18-ESCD01",
-      "Arvore Prisma4 / Pro": "RS-ST01-18-00T-ESD01",
-      "Descrição": "ESCADARIA DIRETORIA",
       "Turnos": "T2E"
     },
     {
@@ -507,12 +465,6 @@
       "Turnos": "T2E"
     },
     {
-      "Local Instalação": "BR01-IES-P31-BAN068",
-      "Arvore Prisma4 / Pro": "RS-ST01-31-00T-WCM02",
-      "Descrição": "BANHEIRO BRUNIMENTO SUL - M",
-      "Turnos": "T1, T2, T3"
-    },
-    {
       "Local Instalação": "BR01-IES-P31-BAN069",
       "Arvore Prisma4 / Pro": "RS-ST01-31-00T-WCF02",
       "Descrição": "BANHEIRO BRUNIMENTO SUL - F",
@@ -633,12 +585,6 @@
       "Turnos": "T2E, T3E"
     },
     {
-      "Local Instalação": "BR01-IES-P43-BAN133",
-      "Arvore Prisma4 / Pro": "RS-ST01-43-00T-WCF04",
-      "Descrição": "BANHEIRO WRS P43B - F",
-      "Turnos": "T2E, T3E"
-    },
-    {
       "Local Instalação": "BR01-IES-P43-SALA01",
       "Arvore Prisma4 / Pro": "RS-ST01-43-00T-SLA01",
       "Descrição": "HALL DE ENTRADA",
@@ -666,12 +612,6 @@
       "Local Instalação": "BR01-IES-P49-BAN100",
       "Arvore Prisma4 / Pro": "RS-ST01-49-00T-WCM01",
       "Descrição": "BANHEIRO VESTIARIO TERREO - M",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P49-BAN101",
-      "Arvore Prisma4 / Pro": "RS-ST01-49-02P-WCF01",
-      "Descrição": "BANHEIRO VESTIARIO ZPT 2o ANDAR - F",
       "Turnos": "T2E"
     },
     {
@@ -744,12 +684,6 @@
       "Local Instalação": "BR01-IES-P50-BAN106",
       "Arvore Prisma4 / Pro": "RS-ST01-50-00T-WCM02",
       "Descrição": "BANHEIRO MONTAGEM - M",
-      "Turnos": "T1, T2, T3"
-    },
-    {
-      "Local Instalação": "BR01-IES-P50-BAN107",
-      "Arvore Prisma4 / Pro": "RS-ST01-50-00T-WCF02",
-      "Descrição": "BANHEIRO MONTAGEM - F",
       "Turnos": "T1, T2, T3"
     },
     {
@@ -1873,18 +1807,6 @@
       "Turnos": "T2E"
     },
     {
-      "Local Instalação": "BR01-IES-P04-BAN010",
-      "Arvore Prisma4 / Pro": "RS-ST01-04-00T-WCM01",
-      "Descrição": "BANHEIRO FINANCEIRO - M",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P04-BAN011",
-      "Arvore Prisma4 / Pro": "RS-ST01-04-00T-WCF01",
-      "Descrição": "BANHEIRO FINANCEIRO - F",
-      "Turnos": "T2E"
-    },
-    {
       "Local Instalação": "BR01-IES-P04-SALA01",
       "Arvore Prisma4 / Pro": "RS-ST01-04-00T-SLA01",
       "Descrição": "HALL DE ENTRADA",
@@ -1969,18 +1891,6 @@
       "Turnos": "T2E"
     },
     {
-      "Local Instalação": "BR01-IES-P11-SALA15",
-      "Arvore Prisma4 / Pro": "RS-ST01-11-00T-SLA08",
-      "Descrição": "SALA LABORATORIO MATERIAIS QUIMICOS I",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P11-SALA16",
-      "Arvore Prisma4 / Pro": "RS-ST01-11-00T-SLA04",
-      "Descrição": "SALA LABORATORIO METALURGICO",
-      "Turnos": "T2E"
-    },
-    {
       "Local Instalação": "BR01-IES-P11-SALA24",
       "Arvore Prisma4 / Pro": "RS-ST01-11-00T-SLA05",
       "Descrição": "SALA SUPERVISAO GRAVIDADE",
@@ -2053,12 +1963,6 @@
       "Turnos": "T2E"
     },
     {
-      "Local Instalação": "BR01-IES-P15-SALA01",
-      "Arvore Prisma4 / Pro": "RS-ST01-15-00T-SLA01",
-      "Descrição": "LOGISTICA - SALA ADM",
-      "Turnos": "T2E"
-    },
-    {
       "Local Instalação": "BR01-IES-P15-SALA05",
       "Arvore Prisma4 / Pro": "RS-ST01-15-00T-SLA05",
       "Descrição": "PORTARIA 2 - SALA RECEPCAO",
@@ -2122,18 +2026,6 @@
       "Local Instalação": "BR01-IES-P18-BAN039",
       "Arvore Prisma4 / Pro": "RS-ST01-18-00T-WCF01",
       "Descrição": "BANHEIRO COMPRAS / PLANEJ - F",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P18-BAN041",
-      "Arvore Prisma4 / Pro": "RS-ST01-18-00T-WCF02",
-      "Descrição": "BANHEIRO PRESIDENCIA - F",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P18-ESCD01",
-      "Arvore Prisma4 / Pro": "RS-ST01-18-00T-ESD01",
-      "Descrição": "ESCADARIA DIRETORIA",
       "Turnos": "T2E"
     },
     {
@@ -2383,12 +2275,6 @@
       "Turnos": "T2E, T3E"
     },
     {
-      "Local Instalação": "BR01-IES-P43-BAN133",
-      "Arvore Prisma4 / Pro": "RS-ST01-43-00T-WCF04",
-      "Descrição": "BANHEIRO WRS P43B - F",
-      "Turnos": "T2E, T3E"
-    },
-    {
       "Local Instalação": "BR01-IES-P43-SALA01",
       "Arvore Prisma4 / Pro": "RS-ST01-43-00T-SLA01",
       "Descrição": "HALL DE ENTRADA",
@@ -2416,12 +2302,6 @@
       "Local Instalação": "BR01-IES-P49-BAN100",
       "Arvore Prisma4 / Pro": "RS-ST01-49-00T-WCM01",
       "Descrição": "BANHEIRO VESTIARIO TERREO - M",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P49-BAN101",
-      "Arvore Prisma4 / Pro": "RS-ST01-49-02P-WCF01",
-      "Descrição": "BANHEIRO VESTIARIO ZPT 2o ANDAR - F",
       "Turnos": "T2E"
     },
     {
