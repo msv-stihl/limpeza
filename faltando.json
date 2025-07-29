@@ -287,12 +287,6 @@
       "Turnos": "T2, T3"
     },
     {
-      "Local Instalação": "BR01-IES-P01-BAN002",
-      "Arvore Prisma4 / Pro": "RS-ST01-01-00T-WCM02",
-      "Descrição": "BANHEIRO VIRABREQUIM - M",
-      "Turnos": "T2, T3"
-    },
-    {
       "Local Instalação": "BR01-IES-P01-BAN003",
       "Arvore Prisma4 / Pro": "RS-ST01-01-00T-WCM03",
       "Descrição": "BANHEIRO VIRABREQUIM - M",
@@ -965,33 +959,15 @@
       "Turnos": "T1, T2, T3"
     },
     {
-      "Local Instalação": "BR01-IES-P50-BAN107",
-      "Arvore Prisma4 / Pro": "RS-ST01-50-00T-WCF02",
-      "Descrição": "BANHEIRO MONTAGEM - F",
-      "Turnos": "T1, T2, T3"
-    },
-    {
       "Local Instalação": "BR01-IES-P50-BAN108",
       "Arvore Prisma4 / Pro": "RS-ST01-50-00T-WPU01",
       "Descrição": "BANHEIRO MONTAGEM - C",
       "Turnos": "T3E"
     },
     {
-      "Local Instalação": "BR01-IES-P50-BAN111",
-      "Arvore Prisma4 / Pro": "RS-ST01-50-01P-WCM02",
-      "Descrição": "BANHEIRO MEZANINO OESTE - M",
-      "Turnos": "T3E"
-    },
-    {
       "Local Instalação": "BR01-IES-P50-BAN112",
       "Arvore Prisma4 / Pro": "RS-ST01-50-01P-WCF02",
       "Descrição": "BANHEIRO MEZANINO OESTE - F",
-      "Turnos": "T3E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P50-BAN113",
-      "Arvore Prisma4 / Pro": "RS-ST01-50-01P-WPU01",
-      "Descrição": "BANHEIRO MEZANINO OESTE - C",
       "Turnos": "T3E"
     },
     {
@@ -2034,12 +2010,6 @@
       "Local Instalação": "BR01-IES-P50-BAN112",
       "Arvore Prisma4 / Pro": "RS-ST01-50-01P-WCF02",
       "Descrição": "BANHEIRO MEZANINO OESTE - F",
-      "Turnos": "T3E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P50-BAN113",
-      "Arvore Prisma4 / Pro": "RS-ST01-50-01P-WPU01",
-      "Descrição": "BANHEIRO MEZANINO OESTE - C",
       "Turnos": "T3E"
     },
     {
