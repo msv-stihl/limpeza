@@ -1,0 +1,83 @@
+# Arquivos de configuração sensíveis
+.env
+*.log
+
+# Ambiente virtual Python
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Arquivos temporários
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+
+# Arquivos de dados sensíveis
+exportacao.xlsx
+cronograma_lc.xlsx
+cronograma-lc.db
+*.xls
+*.xlsx
+
+# Pasta de downloads
+downloads/
+
+# Logs
+logs/
+*.log
+cron.log
+status.log
+limpeza_coletor.log
+
+# Arquivos do sistema
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Arquivos de backup
+*.bak
+*.backup
+
+# Certificados e chaves
+*.pem
+*.key
+*.crt
+*.p12
+
+# Arquivos específicos do projeto
+run.sh
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pytest
+.pytest_cache/
+.coverage
+htmlcov/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
