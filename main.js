@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const loading = document.getElementById("loading");
   const mensagem = document.getElementById("mensagem");
 
-  const apiURL = "https://raw.githubusercontent.com/msv-stihl/limpeza/refs/heads/main/faltando.json";
+  const apiURL = "https://raw.githubusercontent.com/msv-stihl/limpeza/refs/heads/master/faltando.json";
 
   if (form) {
     form.addEventListener("submit", async (e) => {
