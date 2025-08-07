@@ -214,7 +214,7 @@ class ProManservCollector:
             return None
     
     def process_excel_file(self, file_path):
-        """Processa o arquivo Excel baixado"""
+        """Processa o arquivo Excel baixado com múltiplas estratégias de leitura"""
         try:
             logger.info("Processando arquivo Excel...")
             logger.info(f"Arquivo recebido: {file_path}")
@@ -233,8 +233,63 @@ class ProManservCollector:
             if file_size == 0:
                 raise Exception("Arquivo está vazio")
             
-            # Ler o arquivo Excel
-            df_novo = pd.read_excel(file_path, skiprows=1, engine='xlrd')
+            # Determinar o engine baseado na extensão
+            file_ext = file_path.suffix.lower()
+            df_novo = None
+            
+            if file_ext == '.xls':
+                # Para arquivos .xls, tentar múltiplas abordagens
+                logger.info("Detectado arquivo .xls, tentando múltiplas estratégias de leitura...")
+                
+                # Tentativa 1: pyxlsb (mais robusto)
+                try:
+                    df_novo = pd.read_excel(file_path, engine='pyxlsb', skiprows=1)
+                    logger.info(f"Arquivo .xls lido com pyxlsb. Linhas: {len(df_novo)}")
+                except Exception as e:
+                    logger.warning(f"Falha ao ler com pyxlsb: {e}")
+                    
+                    # Tentativa 2: xlrd com ignore_workbook_corruption
+                    try:
+                        import xlrd
+                        workbook = xlrd.open_workbook(str(file_path), ignore_workbook_corruption=True)
+                        sheet = workbook.sheet_by_index(0)
+                        
+                        # Converter para DataFrame (pular primeira linha)
+                        data = []
+                        headers = [sheet.cell_value(1, col) for col in range(sheet.ncols)]  # Linha 1 como header
+                        
+                        for row in range(2, sheet.nrows):  # Começar da linha 2
+                            row_data = [sheet.cell_value(row, col) for col in range(sheet.ncols)]
+                            data.append(row_data)
+                        
+                        df_novo = pd.DataFrame(data, columns=headers)
+                        logger.info(f"Arquivo .xls lido com xlrd (ignore corruption). Linhas: {len(df_novo)}")
+                    except Exception as e2:
+                        logger.warning(f"Falha ao ler com xlrd: {e2}")
+                        
+                        # Tentativa 3: xlrd padrão
+                        try:
+                            df_novo = pd.read_excel(file_path, engine='xlrd', skiprows=1)
+                            logger.info(f"Arquivo .xls lido com xlrd padrão. Linhas: {len(df_novo)}")
+                        except Exception as e3:
+                            logger.error(f"Erro ao ler arquivo .xls com xlrd padrão: {e3}")
+                            return None
+                
+                if df_novo is None:
+                    logger.error("Não foi possível ler o arquivo .xls com nenhum método")
+                    return None
+            else:
+                # Para arquivos .xlsx, usar openpyxl
+                try:
+                    df_novo = pd.read_excel(file_path, engine='openpyxl', skiprows=1)
+                    logger.info(f"Arquivo .xlsx lido com openpyxl. Linhas: {len(df_novo)}")
+                except Exception as e:
+                    logger.error(f"Erro ao ler arquivo .xlsx: {e}")
+                    return None
+            
+            if len(df_novo) == 0:
+                logger.warning("Arquivo Excel não contém dados")
+                return None
             
             # Selecionar apenas as primeiras 11 colunas
             df_novo = df_novo.iloc[:, :11]
