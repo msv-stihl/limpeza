@@ -1,50 +1,7 @@
 {
-  "T1": [
-    {
-      "Local Instalação": "P04 - CONTROLADORIA - SALA ADM",
-      "Arvore Prisma4 / Pro": "BR01-IES-P04-SALA08",
-      "Descrição": "Sala Administrativa",
-      "Turnos": "T1"
-    },
-    {
-      "Local Instalação": "SALA ENFERMEIRAS II AMBULATORIO",
-      "Arvore Prisma4 / Pro": "RS-ST01-27-00T-SLA12",
-      "Descrição": "Sala de Enfermagem",
-      "Turnos": "T1"
-    }
-  ],
-  "T2": [
-    {
-      "Local Instalação": "P04 - CONTROLADORIA - SALA ADM",
-      "Arvore Prisma4 / Pro": "BR01-IES-P04-SALA08",
-      "Descrição": "Sala Administrativa",
-      "Turnos": "T2"
-    },
-    {
-      "Local Instalação": "BEBEDOURO - 01.005",
-      "Arvore Prisma4 / Pro": "BR01-IES-P01-BEB005",
-      "Descrição": "Bebedouro Pavimento 1",
-      "Turnos": "T2"
-    },
-    {
-      "Local Instalação": "SALA ENFERMEIRAS II AMBULATORIO",
-      "Arvore Prisma4 / Pro": "RS-ST01-27-00T-SLA12",
-      "Descrição": "Sala de Enfermagem",
-      "Turnos": "T2"
-    }
-  ],
-  "T3": [
-    {
-      "Local Instalação": "P04 - CONTROLADORIA - SALA ADM",
-      "Arvore Prisma4 / Pro": "BR01-IES-P04-SALA08",
-      "Descrição": "Sala Administrativa",
-      "Turnos": "T3"
-    },
-    {
-      "Local Instalação": "BEBEDOURO - 01.005",
-      "Arvore Prisma4 / Pro": "BR01-IES-P01-BEB005",
-      "Descrição": "Bebedouro Pavimento 1",
-      "Turnos": "T3"
-    }
-  ]
+  "T1": [],
+  "T2": [],
+  "T2E": [],
+  "T3": [],
+  "T3E": []
 }
