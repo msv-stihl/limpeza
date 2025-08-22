@@ -22,12 +22,6 @@
   "T2": [
     {
       "Local Instalação": "nan",
-      "Arvore Prisma4 / Pro": "BR01-IES-P01-BAN001",
-      "Descrição": "nan",
-      "Turnos": "T2"
-    },
-    {
-      "Local Instalação": "nan",
       "Arvore Prisma4 / Pro": "BR01-IES-P01-SALA02",
       "Descrição": "nan",
       "Turnos": "T2"
@@ -137,12 +131,6 @@
     {
       "Local Instalação": "nan",
       "Arvore Prisma4 / Pro": "BR01-IES-P03-SALA12",
-      "Descrição": "nan",
-      "Turnos": "T2"
-    },
-    {
-      "Local Instalação": "nan",
-      "Arvore Prisma4 / Pro": "BR01-IES-P04-BAN012",
       "Descrição": "nan",
       "Turnos": "T2"
     },
@@ -562,12 +550,6 @@
     }
   ],
   "T3": [
-    {
-      "Local Instalação": "nan",
-      "Arvore Prisma4 / Pro": "BR01-IES-P01-BAN001",
-      "Descrição": "nan",
-      "Turnos": "T3"
-    },
     {
       "Local Instalação": "nan",
       "Arvore Prisma4 / Pro": "BR01-IES-P07-BAN016",
@@ -1713,12 +1695,6 @@
     {
       "Local Instalação": "nan",
       "Arvore Prisma4 / Pro": "BR01-IES-P03-SALA12",
-      "Descrição": "nan",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "nan",
-      "Arvore Prisma4 / Pro": "BR01-IES-P04-BAN012",
       "Descrição": "nan",
       "Turnos": "T2E"
     },
