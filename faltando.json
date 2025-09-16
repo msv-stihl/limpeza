@@ -411,12 +411,6 @@
       "Turnos": "T2E"
     },
     {
-      "Local Instalação": "BR01-IES-P20-BAN043",
-      "Arvore Prisma4 / Pro": "RS-ST01-20-00T-WCF01",
-      "Descrição": "BANHEIRO AFAS GALPAO - F",
-      "Turnos": "T2E"
-    },
-    {
       "Local Instalação": "BR01-IES-P20-QUIO01",
       "Arvore Prisma4 / Pro": "",
       "Descrição": "QUIOSQUE",
@@ -2062,12 +2056,6 @@
       "Local Instalação": "BR01-IES-P20-BAN042",
       "Arvore Prisma4 / Pro": "RS-ST01-20-00T-WCM01",
       "Descrição": "BANHEIRO AFAS GALPAO - M",
-      "Turnos": "T2E"
-    },
-    {
-      "Local Instalação": "BR01-IES-P20-BAN043",
-      "Arvore Prisma4 / Pro": "RS-ST01-20-00T-WCF01",
-      "Descrição": "BANHEIRO AFAS GALPAO - F",
       "Turnos": "T2E"
     },
     {
