@@ -1,0 +1,1295 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Coletor de dados usando Selenium para simular comportamento real do usuário
+Compatível com cron e sem dependências do Windows
+"""
+
+import os
+import time
+import sqlite3
+import json
+import pandas as pd
+from datetime import datetime, timedelta, time as datetime_time
+import calendar
+import shutil
+import logging
+from pathlib import Path
+from dotenv import load_dotenv
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.support.ui import Select
+from selenium.common.exceptions import TimeoutException, NoSuchElementException
+import glob
+from time import time as time_obj
+from git_manager import GitManager
+
+# Carregar variáveis de ambiente
+load_dotenv()
+
+# Configuração de logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler('coletor_selenium.log'),
+        logging.StreamHandler()
+    ]
+)
+logger = logging.getLogger(__name__)
+
+# --- CONFIGURAÇÃO E SEGURANÇA ---
+PRO_URL = "https://pro.manserv.com.br"
+PRO_LOGIN_URL = f"{PRO_URL}/login"
+PRO_CHECKLIST_URL = f"{PRO_URL}/operational/checklist-results-history"
+PRO_EXPORT_URL = f"{PRO_URL}/operational/checklist-results-export"
+
+# Credenciais (usar variáveis de ambiente em produção)
+PRO_USER = os.getenv('PRO_USER', 'wesley.luz@manserv.com.br')
+PRO_PASS = os.getenv('PRO_PASS', '028885')
+
+# Diretórios
+DIRETORIO_ATUAL = Path(__file__).parent.absolute()
+PASTA_DOWNLOAD = DIRETORIO_ATUAL / "downloads"
+PASTA_DOWNLOAD.mkdir(exist_ok=True)
+
+# Configuração do Chrome para downloads
+CHROME_DOWNLOAD_PATH = str(PASTA_DOWNLOAD.absolute())
+
+# Arquivos de dados
+ARQUIVO_LIMPEZA = DIRETORIO_ATUAL / "backend" / "cronograma_lc.xlsx"
+ARQUIVO_EXPORTACAO = DIRETORIO_ATUAL / "backend" / "exportacao.xlsx"
+ARQUIVO_JSON = DIRETORIO_ATUAL / "faltando.json"
+
+class ColetorSelenium:
+    def __init__(self):
+        self.driver = None
+        self.wait = None
+        
+    def setup_driver(self):
+        """Configura o driver do Chrome com opções para download"""
+        chrome_options = Options()
+        
+        # Configurações para ambiente headless (servidor)
+        chrome_options.add_argument("--headless=new")
+        chrome_options.add_argument("--disable-blink-features=AutomationControlled")
+        chrome_options.add_argument("--window-size=1920,1080")
+        chrome_options.add_argument("start-maximized")
+        chrome_options.add_argument(
+            "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
+        )
+        chrome_options.add_argument('--no-sandbox')
+        chrome_options.add_argument('--disable-dev-shm-usage')
+        chrome_options.add_argument('--disable-gpu')
+        
+        # Configurações de download
+        prefs = {
+            "download.default_directory": CHROME_DOWNLOAD_PATH,
+            "download.prompt_for_download": False,
+            "directory_upgrade": True,
+            "safebrowsing.enabled": True
+        }
+        chrome_options.add_experimental_option("prefs", prefs)
+        
+        try:
+            self.driver = webdriver.Chrome(options=chrome_options)
+            
+            # Remover a detecção do webdriver
+            self.driver.execute_cdp_cmd("Page.addScriptToEvaluateOnNewDocument", {
+                "source": """
+                    Object.defineProperty(navigator, 'webdriver', {
+                        get: () => undefined
+                    });
+                """
+            })
+            
+            self.wait = WebDriverWait(self.driver, 30)
+            logger.info("Driver Chrome configurado com sucesso")
+            return True
+        except Exception as e:
+            logger.error(f"Erro ao configurar driver: {e}")
+            return False
+    
+    def login(self):
+        """Realiza login no sistema"""
+        try:
+            logger.info("Acessando página de login...")
+            self.driver.get(PRO_LOGIN_URL)
+            
+            # Aguardar campos de login
+            email_field = self.wait.until(
+                EC.presence_of_element_located((By.ID, "client-email"))
+            )
+            password_field = self.wait.until(
+                EC.presence_of_element_located((By.ID, "client-password"))
+            )
+            
+            # Preencher credenciais
+            email_field.clear()
+            email_field.send_keys(PRO_USER)
+            password_field.clear()
+            password_field.send_keys(PRO_PASS)
+            
+            # Submeter formulário
+            login_button = self.wait.until(
+                EC.element_to_be_clickable((By.ID, "client-submit"))
+            )
+            login_button.click()
+            
+            logger.info("Login realizado com sucesso!")
+            
+            # Aguardar e selecionar empresa
+            logger.info("Selecionando empresa...")
+            wait_short = WebDriverWait(self.driver, 10)
+            dropdown_container = wait_short.until(EC.presence_of_element_located(
+                (By.CSS_SELECTOR, ".selectize-control.form-control.single.plugin-restore_on_backspace")
+            ))
+            dropdown_container.click()
+            
+            dropdown_opcoes = wait_short.until(EC.visibility_of_element_located(
+                (By.CSS_SELECTOR, ".selectize-dropdown")
+            ))
+            opcao = dropdown_opcoes.find_element(By.XPATH, ".//div[contains(text(),'MF - STIHL SERVIÇOS')]")
+            opcao.click()
+            
+            logger.info("Empresa selecionada com sucesso!")
+            
+            logger.info("Login realizado com sucesso")
+            return True
+            
+        except Exception as e:
+            logger.error(f"Erro no login: {e}")
+            return False
+    
+    def navigate_to_reports(self):
+        """Navega para a página de relatórios"""
+        try:
+            logger.info("Navegando para página de relatórios...")
+            self.driver.get(PRO_CHECKLIST_URL)
+            
+            # Aguardar página carregar
+            self.wait.until(
+                EC.presence_of_element_located((By.TAG_NAME, "body"))
+            )
+            
+            logger.info("Página de relatórios carregada")
+            return True
+            
+        except Exception as e:
+            logger.error(f"Erro ao navegar para relatórios: {e}")
+            return False
+    
+    def apply_filters(self, data_inicio, data_fim):
+        """Aplica filtros de data na página"""
+        try:
+            logger.info(f"Aplicando filtros: {data_inicio} até {data_fim}")
+            
+            # Usar JavaScript para definir as datas (mais confiável)
+            script = f'''
+            document.getElementById("beginDate").value = "{data_inicio}";
+            document.getElementById("beginDate").dispatchEvent(new Event('change'));
+            
+            document.getElementById("endDate").value = "{data_fim}";
+            document.getElementById("endDate").dispatchEvent(new Event('change'));
+            '''
+            self.driver.execute_script(script)
+            
+            # Aguardar um pouco para o JavaScript processar
+            time.sleep(1)
+            
+            # Clicar no botão de filtrar
+            wait_short = WebDriverWait(self.driver, 10)
+            botao_filtrar = wait_short.until(EC.element_to_be_clickable((By.ID, "button-filter")))
+            botao_filtrar.click()
+            
+            # Aguardar resultados carregarem
+            time.sleep(3)
+            
+            logger.info("Filtros aplicados com sucesso")
+            return True
+            
+        except Exception as e:
+            logger.error(f"Erro ao aplicar filtros: {e}")
+            return False
+    
+    def export_data(self):
+        """Realiza a exportação dos dados"""
+        try:
+            logger.info("Iniciando exportação...")
+            
+            # Limpar pasta de downloads antes da exportação
+            for file in glob.glob(os.path.join(CHROME_DOWNLOAD_PATH, "*.xls")):
+                os.remove(file)
+                
+            for file in glob.glob(os.path.join(CHROME_DOWNLOAD_PATH, "*.xlsx")):
+                os.remove(file)
+            
+            # Clicar no botão de exportar Excel
+            wait_short = WebDriverWait(self.driver, 10)
+            botao_export = wait_short.until(EC.element_to_be_clickable((By.ID, "button-export-excel")))
+            botao_export.click()
+            
+            logger.info("Aguardando o download do arquivo...")
+            
+            # Aguardar download completar (lógica otimizada do código fornecido)
+            tempo_espera = 0
+            arquivo_baixado = None
+            
+            while tempo_espera < 600:  # Espera por no máximo 600 segundos (10 minutos)
+                # Verificar se há arquivos .crdownload (download em progresso)
+                if any(f.endswith('.crdownload') for f in os.listdir(CHROME_DOWNLOAD_PATH)):
+                    time.sleep(1)
+                    tempo_espera += 1
+                    continue
+                
+                # Procurar arquivos Excel baixados
+                lista_arquivos = [
+                    f for f in os.listdir(CHROME_DOWNLOAD_PATH)
+                    if f.endswith(('.xls', '.xlsx')) and not f.startswith('~$')
+                ]
+                
+                if lista_arquivos:
+                    arquivo_baixado = os.path.join(CHROME_DOWNLOAD_PATH, lista_arquivos[0])
+                    logger.info(f"Download concluído: {arquivo_baixado}")
+                    break
+                    
+                time.sleep(1)
+                tempo_espera += 1
+            
+            if not arquivo_baixado:
+                raise Exception("O download do arquivo demorou muito ou falhou.")
+            
+            return arquivo_baixado
+                
+        except Exception as e:
+            logger.error(f"Erro na exportação: {e}")
+            return None
+    
+    def process_excel_file(self, file_path):
+        """Processa o arquivo Excel baixado"""
+        try:
+            if not file_path or not os.path.exists(file_path):
+                logger.error("Arquivo não encontrado")
+                return False
+            
+            logger.info(f"Processando arquivo: {file_path}")
+            
+            # Verificar tamanho do arquivo
+            file_size = os.path.getsize(file_path)
+            logger.info(f"Tamanho do arquivo: {file_size} bytes")
+            
+            if file_size == 0:
+                logger.error("Arquivo está vazio")
+                return False
+            
+            # Determinar o engine baseado na extensão
+            file_ext = os.path.splitext(file_path)[1].lower()
+            
+            if file_ext == '.xls':
+                # Para arquivos .xls, tentar múltiplas abordagens
+                df = None
+                
+                # Tentativa 1: pyxlsb (mais robusto)
+                try:
+                    df = pd.read_excel(file_path, engine='pyxlsb')
+                    logger.info(f"Arquivo .xls lido com pyxlsb. Linhas: {len(df)}")
+                except Exception as e:
+                    logger.warning(f"Falha ao ler com pyxlsb: {e}")
+                    
+                    # Tentativa 2: xlrd com ignore_workbook_corruption
+                    try:
+                        import xlrd
+                        workbook = xlrd.open_workbook(file_path, ignore_workbook_corruption=True)
+                        sheet = workbook.sheet_by_index(0)
+                        
+                        # Converter para DataFrame
+                        data = []
+                        headers = [sheet.cell_value(0, col) for col in range(sheet.ncols)]
+                        
+                        for row in range(1, sheet.nrows):
+                            row_data = [sheet.cell_value(row, col) for col in range(sheet.ncols)]
+                            data.append(row_data)
+                        
+                        df = pd.DataFrame(data, columns=headers)
+                        logger.info(f"Arquivo .xls lido com xlrd (ignore corruption). Linhas: {len(df)}")
+                    except Exception as e2:
+                        logger.error(f"Erro ao ler arquivo .xls com xlrd: {e2}")
+                        return False
+                
+                if df is None:
+                    logger.error("Não foi possível ler o arquivo .xls com nenhum método")
+                    return False
+            else:
+                # Para arquivos .xlsx, usar openpyxl
+                try:
+                    df = pd.read_excel(file_path, engine='openpyxl')
+                    logger.info(f"Arquivo .xlsx lido com openpyxl. Linhas: {len(df)}")
+                except Exception as e:
+                    logger.error(f"Erro ao ler arquivo .xlsx: {e}")
+                    return False
+            
+            if len(df) == 0:
+                logger.warning("Arquivo Excel não contém dados")
+                return False
+            
+            # Salvar como arquivo final na pasta backend
+            arquivo_final = ARQUIVO_EXPORTACAO
+            df.to_excel(arquivo_final, index=False, engine='openpyxl')
+            logger.info(f"Dados salvos em: {arquivo_final}")
+            
+            logger.info("Dados processados com sucesso")
+            return True
+                
+        except Exception as e:
+            logger.error(f"Erro ao processar arquivo: {e}")
+            return False
+    
+    def generate_faltando_json(self):
+        """Gera arquivo faltando.json seguindo a lógica correta do sistema"""
+        try:
+            logger.info("Gerando arquivo faltando.json...")
+            
+            # Verificar se cronograma_lc.xlsx existe
+            if not ARQUIVO_LIMPEZA.exists():
+                logger.error(f"Arquivo {ARQUIVO_LIMPEZA} não encontrado")
+                return False
+            
+            # Verificar se exportacao.xlsx existe
+            if not ARQUIVO_EXPORTACAO.exists():
+                logger.error(f"Arquivo {ARQUIVO_EXPORTACAO} não encontrado")
+                return False
+            
+            # 1. Ler dados do exportacao.xlsx
+            logger.info("Lendo dados do exportacao.xlsx...")
+            dados_exportacao = pd.read_excel(ARQUIVO_EXPORTACAO)
+            
+            # 2. Copiar apenas colunas A:J (primeiras 10 colunas) para MSPRO_DB
+            logger.info("Atualizando colunas A:J na guia MSPRO_DB do cronograma_lc.xlsx...")
+            
+            # Usar openpyxl para preservar tabelas e estruturas existentes
+            import openpyxl
+            from openpyxl.utils.dataframe import dataframe_to_rows
+            import time
+            import tempfile
+            
+            def tentar_abrir_arquivo(arquivo_path, max_tentativas=5, intervalo=2):
+                """Tenta abrir arquivo Excel, aguardando se estiver em uso"""
+                for tentativa in range(max_tentativas):
+                    try:
+                        wb = openpyxl.load_workbook(arquivo_path)
+                        return wb
+                    except PermissionError:
+                        if tentativa < max_tentativas - 1:
+                            logger.warning(f"Arquivo {arquivo_path} em uso. Tentativa {tentativa + 1}/{max_tentativas}. Aguardando {intervalo}s...")
+                            time.sleep(intervalo)
+                        else:
+                            # Se ainda está em uso, criar uma cópia temporária
+                            logger.warning("Arquivo ainda em uso. Criando cópia temporária...")
+                            temp_path = str(arquivo_path).replace('.xlsx', '_temp.xlsx')
+                            try:
+                                shutil.copy2(arquivo_path, temp_path)
+                                wb = openpyxl.load_workbook(temp_path)
+                                logger.info(f"Trabalhando com cópia temporária: {temp_path}")
+                                return wb
+                            except Exception as e:
+                                logger.error(f"Erro ao criar cópia temporária: {e}")
+                                raise
+                return None
+            
+            try:
+                # Carregar workbook existente com retry
+                wb = tentar_abrir_arquivo(ARQUIVO_LIMPEZA)
+                
+                # Verificar se a guia MSPRO_DB existe
+                if 'MSPRO_DB' in wb.sheetnames:
+                    ws = wb['MSPRO_DB']
+                    
+                    # Limpar apenas os dados existentes, preservando a estrutura da guia
+                    max_row = ws.max_row
+                    max_col = ws.max_column
+                    
+                    # Limpar dados das linhas 2 em diante, apenas colunas A:J (preservar coluna K com fórmulas)
+                    if max_row > 1:
+                        for row in range(2, max_row + 1):
+                            for col in range(1, 11):  # Colunas A:J (1-10) apenas
+                                ws.cell(row=row, column=col, value=None)
+                    
+                    # Preservar coluna K (não limpar cabeçalho nem fórmulas)
+                    
+                    # Atualizar cabeçalho apenas nas colunas A:J se necessário
+                    cabecalho_novo = dados_exportacao.columns[:10].tolist()
+                    for c_idx, header in enumerate(cabecalho_novo, 1):
+                        ws.cell(row=1, column=c_idx, value=header)
+                    
+                    # Adicionar novos dados a partir da linha 2, apenas colunas A:J
+                    dados_novos = dados_exportacao.iloc[1:, :10]  # Sem cabeçalho, apenas colunas A:J
+                    
+                    for r_idx, row in enumerate(dataframe_to_rows(dados_novos, index=False, header=False), 2):
+                        for c_idx, value in enumerate(row[:10], 1):  # Limitar a 10 colunas (A:J)
+                            ws.cell(row=r_idx, column=c_idx, value=value)
+                    
+                    logger.info(f"Dados atualizados na guia MSPRO_DB: {len(dados_novos)} linhas em colunas A:J")
+                    
+                else:
+                    # Se a guia não existir, criar nova com dados completos
+                    ws = wb.create_sheet('MSPRO_DB')
+                    dados_completos = dados_exportacao.iloc[:, :10]  # Incluir cabeçalho, apenas colunas A:J
+                    
+                    for r_idx, row in enumerate(dataframe_to_rows(dados_completos, index=False, header=True), 1):
+                        for c_idx, value in enumerate(row[:10], 1):  # Limitar a 10 colunas (A:J)
+                            ws.cell(row=r_idx, column=c_idx, value=value)
+                    
+                    logger.info(f"Nova guia MSPRO_DB criada com {len(dados_completos)} linhas em colunas A:J")
+                
+                # Salvar workbook com retry
+                def tentar_salvar_arquivo(wb, arquivo_path, max_tentativas=5, intervalo=2):
+                    """Tenta salvar arquivo Excel, aguardando se estiver em uso"""
+                    for tentativa in range(max_tentativas):
+                        try:
+                            wb.save(arquivo_path)
+                            return True
+                        except PermissionError:
+                            if tentativa < max_tentativas - 1:
+                                logger.warning(f"Erro ao salvar {arquivo_path}. Tentativa {tentativa + 1}/{max_tentativas}. Aguardando {intervalo}s...")
+                                time.sleep(intervalo)
+                            else:
+                                # Se não conseguiu salvar, salvar como temporário
+                                temp_path = str(arquivo_path).replace('.xlsx', '_updated.xlsx')
+                                try:
+                                    wb.save(temp_path)
+                                    logger.warning(f"Arquivo original em uso. Dados salvos em: {temp_path}")
+                                    logger.warning("ATENÇÃO: Feche o Excel e renomeie o arquivo temporário para aplicar as alterações.")
+                                    return True
+                                except Exception as e:
+                                    logger.error(f"Erro ao salvar arquivo temporário: {e}")
+                                    raise
+                    return False
+                
+                tentar_salvar_arquivo(wb, ARQUIVO_LIMPEZA)
+                wb.close()
+                
+            except Exception as e:
+                logger.error(f"Erro ao atualizar MSPRO_DB com openpyxl: {e}")
+                # Fallback para método anterior se openpyxl falhar
+                colunas_aj = dados_exportacao.iloc[1:, :10]
+                with pd.ExcelFile(ARQUIVO_LIMPEZA) as xls:
+                    if 'MSPRO_DB' in xls.sheet_names:
+                        mspro_existente = pd.read_excel(xls, sheet_name='MSPRO_DB', nrows=1)
+                        dados_finais = pd.concat([mspro_existente, colunas_aj], ignore_index=True)
+                    else:
+                        dados_finais = dados_exportacao.iloc[:, :10]
+                
+                with pd.ExcelWriter(ARQUIVO_LIMPEZA, mode='a', if_sheet_exists='replace', engine='openpyxl') as writer:
+                    dados_finais.to_excel(writer, sheet_name='MSPRO_DB', index=False)
+            
+            # 3. Ler cronograma_lc.xlsx atualizado
+            sheets = pd.read_excel(ARQUIVO_LIMPEZA, sheet_name=None)
+            cronograma = sheets.get('Cronograma')
+            leituras = sheets.get('MSPRO_DB')
+            
+            if cronograma is None or leituras is None:
+                logger.error("Não foi possível ler as guias Cronograma ou MSPRO_DB")
+                return False
+            
+            # 4. Determinar o dia atual e coluna correspondente
+            hoje = datetime.now()
+            dia_semana = hoje.weekday()  # 0=segunda, 1=terça, ..., 6=domingo
+            
+            if dia_semana >= 6:  # Domingo
+                logger.info("Hoje é domingo, não há cronograma de limpeza")
+                return True
+            
+            # Mapear dia da semana para índice da coluna (baseado nas colunas X, Y, Z, AA, AB, AC)
+            # X=SEG(23), Y=TER(24), Z=QUA(25), AA=QUI(26), AB=SEX(27), AC=SÁB(28)
+            indices_colunas_dias = {
+                0: 23,  # Segunda - coluna X
+                1: 24,  # Terça - coluna Y  
+                2: 25,  # Quarta - coluna Z
+                3: 26,  # Quinta - coluna AA
+                4: 27,  # Sexta - coluna AB
+                5: 28,  # Sábado - coluna AC
+            }
+            
+            indice_coluna_dia_atual = indices_colunas_dias.get(dia_semana, 25)  # Default para quarta
+            
+            logger.info(f"Processando cronograma para {hoje.strftime('%A')} ({hoje.strftime('%Y-%m-%d')})")
+            logger.info(f"Usando coluna índice {indice_coluna_dia_atual} do cronograma")
+            
+            # 5. Função para ajustar data por turno
+            def ajustar_data_turno(data_hora, turno):
+                try:
+                    # Verificar se é NaN, None ou não é um datetime válido
+                    if pd.isna(data_hora) or data_hora is None:
+                        return None
+                    
+                    # Verificar se é um tipo numérico (int, float) que não deveria estar aqui
+                    if isinstance(data_hora, (int, float, complex)):
+                        logger.warning(f"Valor numérico inesperado em ajustar_data_turno: {data_hora} (tipo: {type(data_hora)})")
+                        return None
+                    
+                    # Converter para datetime se necessário
+                    if isinstance(data_hora, str):
+                        data_hora = pd.to_datetime(data_hora, errors='coerce')
+                        if pd.isna(data_hora):
+                            return None
+                    
+                    # Verificar se é um tipo datetime válido
+                    if not isinstance(data_hora, (pd.Timestamp, datetime)):
+                        logger.warning(f"Tipo inesperado em ajustar_data_turno: {data_hora} (tipo: {type(data_hora)})")
+                        return None
+                    
+                    # Verificar se o objeto tem o método time() antes de chamá-lo
+                    if not hasattr(data_hora, 'time'):
+                        logger.warning(f"Objeto sem método time(): {data_hora} (tipo: {type(data_hora)})")
+                        return None
+                    
+                    hora = data_hora.time()
+                    if turno == "T1" and hora >= datetime_time(22, 35):
+                        return (data_hora + pd.Timedelta(days=1)).date()
+                    if turno == "T3E" and hora <= datetime_time(1, 9):
+                        return (data_hora - pd.Timedelta(days=1)).date()
+                    return data_hora.date()
+                except Exception as e:
+                    logger.error(f"Erro ao ajustar data para {data_hora} (tipo: {type(data_hora)}): {e}")
+                    return None
+            
+            # Definir turnos e horários corretos
+            TURNOS_HORARIOS = {
+                "T1": (datetime_time(22, 35), datetime_time(6, 0)),
+                "T2": (datetime_time(6, 0), datetime_time(14, 20)),
+                "T3": (datetime_time(14, 20), datetime_time(22, 35)),
+                "T2E": (datetime_time(6, 0), datetime_time(15, 48)),
+                "T3E": (datetime_time(15, 48), datetime_time(1, 9)),
+            }
+            
+            def horario_dentro_do_turno(data_hora, turno):
+                """Verifica se o horário da leitura está dentro do intervalo do turno"""
+                if pd.isna(data_hora) or turno not in TURNOS_HORARIOS:
+                    return False
+                
+                try:
+                    hora_leitura = data_hora.time()
+                    inicio, fim = TURNOS_HORARIOS[turno]
+                    
+                    # Para turnos que cruzam a meia-noite (T1 e T3E)
+                    if inicio > fim:
+                        return hora_leitura >= inicio or hora_leitura <= fim
+                    else:
+                        return inicio <= hora_leitura <= fim
+                        
+                except Exception as e:
+                    logger.warning(f"Erro ao verificar horário do turno {turno}: {e}")
+                    return False
+            
+            # 6. Processar dados de leitura com ajuste de data por turno
+            if 'Data/Hora de Início' in leituras.columns:
+                leituras['Data/Hora de Início'] = pd.to_datetime(leituras['Data/Hora de Início'], errors="coerce", dayfirst=True)
+            elif 'Data' in leituras.columns:
+                leituras['Data/Hora de Início'] = pd.to_datetime(leituras['Data'], errors="coerce")
+            else:
+                logger.warning("Coluna 'Data/Hora de Início' ou 'Data' não encontrada nos dados de leitura")
+                leituras['Data/Hora de Início'] = pd.NaT
+            
+            faltando_por_turno = {}
+            
+            # 7. Processar cada turno
+            for turno, (inicio, fim) in TURNOS_HORARIOS.items():
+                logger.info(f"Processando turno {turno}...")
+                
+                # 1. Verificar se há 'X' na coluna do dia atual para este turno
+                if indice_coluna_dia_atual >= len(cronograma.columns):
+                    logger.warning(f"Índice de coluna {indice_coluna_dia_atual} não existe no cronograma")
+                    continue
+                
+                coluna_dia = cronograma.columns[indice_coluna_dia_atual]
+                
+                # 2. Filtrar cronograma: ambientes com 'X' no dia atual
+                cronograma_dia = cronograma[cronograma[coluna_dia].astype(str).str.strip().str.upper() == 'X']
+                
+                if cronograma_dia.empty:
+                    logger.info(f"Nenhum ambiente marcado com 'X' para hoje na coluna {coluna_dia}")
+                    faltando_por_turno[turno] = []
+                    continue
+                
+                # 3. Filtrar por turno usando a coluna V (índice 21) que contém os turnos
+                if len(cronograma.columns) > 21:  # Coluna V
+                    coluna_turnos = cronograma.columns[21]  # Coluna V
+                    ambientes_turno = cronograma_dia[cronograma_dia[coluna_turnos].astype(str).str.contains(turno, na=False)]
+                else:
+                    logger.warning("Coluna V (turnos) não encontrada, usando todos os ambientes")
+                    ambientes_turno = cronograma_dia
+                
+                if ambientes_turno.empty:
+                    logger.info(f"Nenhum ambiente encontrado para o turno {turno}")
+                    faltando_por_turno[turno] = []
+                    continue
+                
+                # 4. Obter QR codes lidos hoje na MSPRO_DB usando coluna E (Data/Hora de Início) com ajuste de turnos
+                qrcodes_lidos_hoje = set()
+                
+                if not leituras.empty and 'QRCode' in leituras.columns:
+                    # Usar prioritariamente a coluna E (Data/Hora de Início) para melhor precisão
+                    data_col = None
+                    if 'Data/Hora de Início' in leituras.columns:
+                        data_col = 'Data/Hora de Início'
+                    elif 'Data/Hora de Finalização' in leituras.columns:
+                        data_col = 'Data/Hora de Finalização'
+                    elif 'Data' in leituras.columns:
+                        data_col = 'Data'
+                    
+                    if data_col:
+                        # Converter coluna para datetime se necessário
+                        if not pd.api.types.is_datetime64_any_dtype(leituras[data_col]):
+                            leituras[data_col] = pd.to_datetime(leituras[data_col], errors='coerce', dayfirst=True)
+                        
+                        # Aplicar lógica de ajuste de data por turno para cada leitura
+                        leituras_ajustadas = []
+                        for _, leitura in leituras.iterrows():
+                            data_hora_leitura = leitura[data_col]
+                            if pd.notna(data_hora_leitura):
+                                # Verificar se o horário está dentro do intervalo do turno
+                                if horario_dentro_do_turno(data_hora_leitura, turno):
+                                    data_ajustada = ajustar_data_turno(data_hora_leitura, turno)
+                                    if data_ajustada == hoje.date():
+                                        leituras_ajustadas.append(leitura)
+                                        logger.debug(f"Leitura válida para {turno}: {data_hora_leitura} -> {data_ajustada}")
+                                else:
+                                    logger.debug(f"Leitura fora do horário do turno {turno}: {data_hora_leitura}")
+                        
+                        leituras_hoje = pd.DataFrame(leituras_ajustadas)
+                        logger.info(f"Usando coluna '{data_col}' com ajuste de turno {turno} para filtrar leituras")
+                        logger.info(f"Encontradas {len(leituras_hoje)} leituras ajustadas para hoje no turno {turno}")
+                    else:
+                        logger.warning("Nenhuma coluna de data encontrada")
+                        leituras_hoje = pd.DataFrame()
+                    
+                    # Obter QR codes da coluna I (QRCode)
+                    if not leituras_hoje.empty:
+                        qrcodes_lidos_hoje = set(
+                            leituras_hoje['QRCode'].astype(str).str.strip()
+                        )
+                        qrcodes_lidos_hoje.discard('nan')
+                        qrcodes_lidos_hoje.discard('')
+                
+                logger.info(f"QR codes lidos hoje para {turno}: {len(qrcodes_lidos_hoje)}")
+                
+                # 5. Comparar cronograma com leituras usando colunas L e M
+                faltantes_turno = []
+                
+                for _, ambiente in ambientes_turno.iterrows():
+                    # Obter QR codes das colunas L e M do cronograma
+                    qr_codes_ambiente = []
+                    
+                    # Coluna L (índice 11)
+                    if len(ambiente) > 11:
+                        qr_l = str(ambiente.iloc[11]).strip()
+                        if qr_l and qr_l != 'nan' and len(qr_l) > 5:
+                            qr_codes_ambiente.append(qr_l)
+                    
+                    # Coluna M (índice 12)
+                    if len(ambiente) > 12:
+                        qr_m = str(ambiente.iloc[12]).strip()
+                        if qr_m and qr_m != 'nan' and len(qr_m) > 5:
+                            qr_codes_ambiente.append(qr_m)
+                    
+                    # Verificar se algum dos QR codes foi lido hoje
+                    ambiente_foi_lido = any(qr in qrcodes_lidos_hoje for qr in qr_codes_ambiente)
+                    
+                    if not ambiente_foi_lido:
+                        # Obter informações do ambiente
+                        # Coluna L (índice 11) = Local Instalação
+                        local_instalacao = str(ambiente.iloc[11]) if len(ambiente) > 11 else ''
+                        if local_instalacao == 'nan':
+                            local_instalacao = ''
+                        
+                        # Coluna M (índice 12) = Arvore Prisma4 / Pro
+                        arvore_prisma = str(ambiente.iloc[12]) if len(ambiente) > 12 else ''
+                        if arvore_prisma == 'nan':
+                            arvore_prisma = ''
+                        
+                        # Coluna N (índice 13) = Descrição
+                        descricao = str(ambiente.iloc[13]) if len(ambiente) > 13 else ''
+                        if descricao == 'nan':
+                            descricao = ''
+                        
+                        # Obter turnos originais da coluna V (índice 21)
+                        turnos_originais = str(ambiente.iloc[21]) if len(ambiente) > 21 else turno
+                        if turnos_originais == 'nan':
+                            turnos_originais = turno
+                        
+                        faltantes_turno.append({
+                            "Local Instalação": local_instalacao,
+                            "Arvore Prisma4 / Pro": arvore_prisma,
+                            "Descrição": descricao,
+                            "Turnos": turnos_originais
+                        })
+                
+                faltando_por_turno[turno] = faltantes_turno
+                logger.info(f"Turno {turno}: {len(faltantes_turno)} ambientes faltantes")
+            
+            # 9. Salvar JSON
+            with open(ARQUIVO_JSON, 'w', encoding='utf-8') as f:
+                json.dump(faltando_por_turno, f, ensure_ascii=False, indent=2)
+            
+            logger.info(f"Arquivo {ARQUIVO_JSON} gerado com sucesso")
+            
+            # 11. Upload para GitHub
+            try:
+                logger.info("Iniciando upload para GitHub...")
+                git_manager = GitManager()
+                
+                # Sincronizar apenas o arquivo faltando.json
+                files_to_sync = ['faltando.json']
+                commit_message = f"Atualização automática faltando.json - {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
+                
+                if git_manager.sync_repository(files=files_to_sync, commit_message=commit_message):
+                    logger.info("Upload para GitHub realizado com sucesso")
+                else:
+                    logger.warning("Falha no upload para GitHub, mas faltando.json foi gerado localmente")
+                    
+            except Exception as e:
+                logger.warning(f"Erro no upload para GitHub: {e}. Arquivo gerado localmente.")
+            
+            return True
+            
+        except Exception as e:
+            logger.error(f"Erro ao gerar faltando.json: {e}")
+            return False
+    
+    def find_missing_environments_new_logic(self, df_cronograma, df_mspro, turno, coluna_dia_atual, hoje):
+        """Encontra ambientes faltantes usando a nova lógica especificada"""
+        try:
+            faltantes = []
+            
+            # 1. Verificar se há 'X' na coluna do dia atual para este turno
+            if coluna_dia_atual >= len(df_cronograma.columns):
+                logger.warning(f"Coluna {coluna_dia_atual} não existe no cronograma")
+                return faltantes
+            
+            coluna_nome = df_cronograma.columns[coluna_dia_atual]
+            
+            # 2. Filtrar cronograma: ambientes com 'X' no dia atual
+            cronograma_dia = df_cronograma[df_cronograma[coluna_nome] == 'X']
+            
+            if cronograma_dia.empty:
+                logger.info(f"Nenhum ambiente marcado com 'X' para hoje na coluna {coluna_nome}")
+                return faltantes
+            
+            # 3. Filtrar por turno usando a coluna 'Turnos' que contém strings
+            if 'Turnos' in df_cronograma.columns:
+                # Filtrar ambientes que contêm o turno específico na string
+                ambientes_turno = cronograma_dia[cronograma_dia['Turnos'].astype(str).str.contains(turno, na=False)]
+            elif len(df_cronograma.columns) > 22:
+                # Fallback: usar coluna por índice se 'Turnos' não existir
+                coluna_turno = df_cronograma.columns[22]
+                ambientes_turno = cronograma_dia[cronograma_dia[coluna_turno].astype(str).str.contains(turno, na=False)]
+            else:
+                logger.warning("Coluna de turnos não encontrada, usando todos os ambientes")
+                ambientes_turno = cronograma_dia
+            
+            if ambientes_turno.empty:
+                logger.info(f"Nenhum ambiente encontrado para o turno {turno}")
+                return faltantes
+            
+            # 4. Obter QR codes lidos hoje na MSPRO_DB usando coluna E com ajuste de turnos
+            qrcodes_lidos_hoje = set()
+            
+            # Definir turnos e horários para validação
+            TURNOS_HORARIOS_LOCAL = {
+                "T1": (datetime_time(22, 35), datetime_time(6, 0)),
+                "T2": (datetime_time(6, 0), datetime_time(14, 20)),
+                "T3": (datetime_time(14, 20), datetime_time(22, 35)),
+                "T2E": (datetime_time(6, 0), datetime_time(15, 48)),
+                "T3E": (datetime_time(15, 48), datetime_time(1, 9)),
+            }
+            
+            def horario_dentro_do_turno_local(data_hora, turno_atual):
+                """Verifica se o horário da leitura está dentro do intervalo do turno"""
+                if pd.isna(data_hora) or turno_atual not in TURNOS_HORARIOS_LOCAL:
+                    return False
+                
+                try:
+                    hora_leitura = data_hora.time()
+                    inicio, fim = TURNOS_HORARIOS_LOCAL[turno_atual]
+                    
+                    # Para turnos que cruzam a meia-noite (T1 e T3E)
+                    if inicio > fim:
+                        return hora_leitura >= inicio or hora_leitura <= fim
+                    else:
+                        return inicio <= hora_leitura <= fim
+                        
+                except Exception as e:
+                    logger.warning(f"Erro ao verificar horário do turno {turno_atual}: {e}")
+                    return False
+            
+            # Função para ajustar data por turno (definida localmente para esta função)
+            def ajustar_data_turno_local(data_hora, turno_atual):
+                try:
+                    if pd.isna(data_hora) or data_hora is None:
+                        return None
+                    
+                    if isinstance(data_hora, str):
+                        data_hora = pd.to_datetime(data_hora, errors='coerce', dayfirst=True)
+                        if pd.isna(data_hora):
+                            return None
+                    
+                    if not isinstance(data_hora, (pd.Timestamp, datetime)):
+                         return None
+                    
+                    if not hasattr(data_hora, 'time'):
+                        return None
+                    
+                    hora = data_hora.time()
+                    # T1: leituras após 22:35 contam para o dia seguinte
+                    if turno_atual == "T1" and hora >= datetime_time(22, 35):
+                        return (data_hora + pd.Timedelta(days=1)).date()
+                    # T3E: leituras entre 00:00-01:09 contam para o dia anterior
+                    if turno_atual == "T3E" and hora <= datetime_time(1, 9):
+                        return (data_hora - pd.Timedelta(days=1)).date()
+                    return data_hora.date()
+                except Exception as e:
+                    logger.error(f"Erro ao ajustar data para {data_hora}: {e}")
+                    return None
+            
+            if not df_mspro.empty:
+                # Usar prioritariamente a coluna E (Data/Hora de Início) para melhor precisão
+                data_col = None
+                if 'Data/Hora de Início' in df_mspro.columns:
+                    data_col = 'Data/Hora de Início'
+                elif 'Data/Hora de Finalização' in df_mspro.columns:
+                    data_col = 'Data/Hora de Finalização'
+                elif 'Data' in df_mspro.columns:
+                    data_col = 'Data'
+                
+                if data_col:
+                    # Converter coluna para datetime se necessário
+                    if not pd.api.types.is_datetime64_any_dtype(df_mspro[data_col]):
+                        df_mspro[data_col] = pd.to_datetime(df_mspro[data_col], errors='coerce', dayfirst=True)
+                    
+                    # Aplicar lógica de ajuste de data por turno para cada leitura
+                    leituras_ajustadas = []
+                    for _, leitura in df_mspro.iterrows():
+                        data_hora_leitura = leitura[data_col]
+                        if pd.notna(data_hora_leitura):
+                            # Verificar se o horário está dentro do intervalo do turno
+                            if horario_dentro_do_turno_local(data_hora_leitura, turno):
+                                data_ajustada = ajustar_data_turno_local(data_hora_leitura, turno)
+                                if data_ajustada == hoje.date():
+                                    leituras_ajustadas.append(leitura)
+                                    logger.debug(f"Leitura válida para {turno}: {data_hora_leitura} -> {data_ajustada}")
+                            else:
+                                logger.debug(f"Leitura fora do horário do turno {turno}: {data_hora_leitura}")
+                    
+                    leituras_hoje = pd.DataFrame(leituras_ajustadas)
+                    logger.info(f"Usando coluna '{data_col}' com ajuste de turno {turno} para filtrar leituras na MSPRO_DB")
+                    logger.info(f"Encontradas {len(leituras_hoje)} leituras ajustadas para hoje no turno {turno}")
+                else:
+                    logger.warning("Nenhuma coluna de data encontrada na MSPRO_DB")
+                    leituras_hoje = pd.DataFrame()
+                    
+                # Obter QR codes da coluna 'QRCode'
+                if 'QRCode' in df_mspro.columns and not leituras_hoje.empty:
+                    qrcodes_lidos_hoje = set(
+                        leituras_hoje['QRCode'].astype(str).str.strip()
+                    )
+                    qrcodes_lidos_hoje.discard('nan')
+                    qrcodes_lidos_hoje.discard('')
+            
+            logger.info(f"QR codes lidos hoje para {turno}: {len(qrcodes_lidos_hoje)}")
+            
+            # 5. Comparar cronograma com leituras
+            for _, ambiente in ambientes_turno.iterrows():
+                # Usar a coluna 12 ('Arvore Prisma4 / Pro') que foi identificada como a correta
+                qr_code = None
+                
+                # Primeiro, tentar pela coluna identificada como correta
+                if 'Arvore Prisma4 / Pro' in df_cronograma.columns:
+                    potential_qr = str(ambiente['Arvore Prisma4 / Pro']).strip()
+                    if potential_qr and potential_qr != 'nan' and len(potential_qr) > 5:
+                        qr_code = potential_qr
+                
+                # Se não encontrou, tentar pela coluna 12 diretamente
+                if not qr_code and len(ambiente) > 12:
+                    potential_qr = str(ambiente.iloc[12]).strip()
+                    if potential_qr and potential_qr != 'nan' and len(potential_qr) > 5:
+                        qr_code = potential_qr
+                
+                # Como fallback, tentar outras colunas identificadas
+                if not qr_code:
+                    for col_idx in [11, 10]:  # 'Local Instalação' e 'Local Ins Superior'
+                        if col_idx < len(ambiente):
+                            potential_qr = str(ambiente.iloc[col_idx]).strip()
+                            if (potential_qr and potential_qr != 'nan' and 
+                                len(potential_qr) > 8 and '-' in potential_qr):
+                                qr_code = potential_qr
+                                break
+                
+                # Verificar se o QR code foi lido hoje
+                if qr_code and qr_code not in qrcodes_lidos_hoje:
+                    # Obter informações do ambiente
+                    local_instalacao = ''
+                    descricao = ''
+                    
+                    # Tentar obter Local Instalação (coluna L - índice 11)
+                    if len(ambiente) > 11:
+                        local_instalacao = str(ambiente.iloc[11])
+                        if local_instalacao == 'nan':
+                            local_instalacao = ''
+                    elif 'Local Instalação' in df_cronograma.columns:
+                        local_instalacao = str(ambiente['Local Instalação'])
+                        if local_instalacao == 'nan':
+                            local_instalacao = ''
+                    
+                    # Tentar obter Arvore Prisma4 / Pro (coluna M - índice 12)
+                    arvore_prisma = ''
+                    if len(ambiente) > 12:
+                        arvore_prisma = str(ambiente.iloc[12])
+                        if arvore_prisma == 'nan':
+                            arvore_prisma = ''
+                    elif 'Arvore Prisma4 / Pro' in df_cronograma.columns:
+                        arvore_prisma = str(ambiente['Arvore Prisma4 / Pro'])
+                        if arvore_prisma == 'nan':
+                            arvore_prisma = ''
+                    
+                    # Se não encontrou na coluna M, usar o qr_code encontrado
+                    if not arvore_prisma:
+                        arvore_prisma = qr_code
+                    
+                    # Tentar obter Descrição (coluna N - índice 13)
+                    if len(ambiente) > 13:
+                        descricao = str(ambiente.iloc[13])
+                        if descricao == 'nan':
+                            descricao = ''
+                    elif 'Descrição' in df_cronograma.columns:
+                        descricao = str(ambiente['Descrição'])
+                        if descricao == 'nan':
+                            descricao = ''
+                    
+                    # Obter turnos originais da coluna V (índice 21)
+                    turnos_originais = turno  # fallback
+                    if len(ambiente) > 21:
+                        turnos_originais = str(ambiente.iloc[21])
+                        if turnos_originais == 'nan':
+                            turnos_originais = turno
+                    elif 'Turnos' in df_cronograma.columns:
+                        turnos_originais = str(ambiente['Turnos'])
+                        if turnos_originais == 'nan':
+                            turnos_originais = turno
+                    
+                    faltantes.append({
+                        "Local Instalação": local_instalacao,
+                        "Arvore Prisma4 / Pro": arvore_prisma,
+                        "Descrição": descricao,
+                        "Turnos": turnos_originais
+                    })
+            
+            return faltantes
+            
+        except Exception as e:
+            logger.error(f"Erro ao encontrar ambientes faltantes para {turno}: {e}")
+            return []
+    
+    def generate_simple_faltando_json(self, leituras):
+        """Gera faltando.json simplificado usando apenas dados de leitura"""
+        try:
+            logger.info("Gerando faltando.json simplificado...")
+            
+            # Encontrar colunas relevantes
+            data_col = self.find_date_column(leituras)
+            qr_col = self.find_qr_column(leituras)
+            ativo_col = self.find_location_column(leituras) or 'Ativo'
+            
+            if not data_col or not qr_col:
+                logger.error("Colunas essenciais não encontradas")
+                return False
+            
+            # Filtrar dados de hoje
+            hoje = datetime.now().date()
+            leituras[data_col] = pd.to_datetime(leituras[data_col], errors="coerce")
+            dados_hoje = leituras[leituras[data_col].dt.date == hoje]
+            
+            # Definir turnos e horários
+            TURNOS_HORARIOS = {
+                "T1": (datetime.strptime("22:35", "%H:%M").time(), datetime.strptime("06:00", "%H:%M").time()),
+                "T2": (datetime.strptime("06:00", "%H:%M").time(), datetime.strptime("14:20", "%H:%M").time()),
+                "T3": (datetime.strptime("14:20", "%H:%M").time(), datetime.strptime("22:35", "%H:%M").time()),
+            }
+            
+            faltando_por_turno = {}
+            
+            # Obter todos os ambientes únicos dos últimos dias
+            ultimos_dias = leituras[leituras[data_col] >= (datetime.now() - timedelta(days=7))]
+            ambientes_conhecidos = set()
+            
+            for _, row in ultimos_dias.iterrows():
+                qr = str(row.get(qr_col, "")).strip()
+                ativo = str(row.get(ativo_col, "")).strip()
+                if qr and qr != 'nan':
+                    ambientes_conhecidos.add((qr, ativo))
+            
+            logger.info(f"Encontrados {len(ambientes_conhecidos)} ambientes únicos")
+            
+            for turno, (inicio, fim) in TURNOS_HORARIOS.items():
+                # Filtrar leituras por horário do turno
+                if inicio <= fim:
+                    df_turno = dados_hoje[
+                        (dados_hoje[data_col].dt.time >= inicio) &
+                        (dados_hoje[data_col].dt.time <= fim)
+                    ]
+                else:
+                    df_turno = dados_hoje[
+                        (dados_hoje[data_col].dt.time >= inicio) |
+                        (dados_hoje[data_col].dt.time <= fim)
+                    ]
+                
+                # QR codes lidos neste turno
+                qrcodes_lidos = set(df_turno[qr_col].astype(str))
+                
+                # Ambientes faltantes
+                faltantes = []
+                for qr, ativo in ambientes_conhecidos:
+                    if qr not in qrcodes_lidos:
+                        faltantes.append({
+                            "Local Instalação": ativo,
+                            "Arvore Prisma4 / Pro": qr,
+                            "Descrição": f"Ambiente {ativo}",
+                            "Turnos": turno
+                        })
+                
+                faltando_por_turno[turno] = faltantes[:50]  # Limitar a 50 por turno
+                logger.info(f"Turno {turno}: {len(faltantes)} ambientes faltantes")
+            
+            # Criar diretório frontend se não existir
+            frontend_dir = DIRETORIO_ATUAL / "frontend"
+            frontend_dir.mkdir(exist_ok=True)
+            
+            # Salvar JSON
+            with open(ARQUIVO_JSON, 'w', encoding='utf-8') as f:
+                json.dump(faltando_por_turno, f, ensure_ascii=False, indent=2)
+            
+            logger.info(f"Arquivo {ARQUIVO_JSON} gerado com sucesso (modo simplificado)")
+            return True
+            
+        except Exception as e:
+            logger.error(f"Erro ao gerar faltando.json simplificado: {e}")
+            return False
+     
+    def create_basic_schedule(self, leituras):
+        """Cria um cronograma básico baseado nos dados de leitura"""
+        try:
+            # Extrair ambientes únicos dos dados de leitura
+            local_col = self.find_location_column(leituras)
+            arvore_col = self.find_tree_column(leituras)
+            
+            if not local_col and not arvore_col:
+                return pd.DataFrame()
+            
+            # Criar DataFrame básico com ambientes únicos
+            ambientes = []
+            for _, row in leituras.iterrows():
+                local = row.get(local_col, "") if local_col else ""
+                arvore = row.get(arvore_col, "") if arvore_col else ""
+                
+                if local or arvore:
+                    ambientes.append({
+                        "Local Instalação": local,
+                        "Arvore Prisma4 / Pro": arvore,
+                        "Descrição": f"Ambiente {local or arvore}",
+                        "Turnos": "T1,T2,T3",  # Assumir todos os turnos
+                        "SEG": "X", "TER": "X", "QUA": "X", "QUI": "X", "SEX": "X", "SÁB": "X", "DOM": "X"
+                    })
+            
+            return pd.DataFrame(ambientes).drop_duplicates()
+            
+        except Exception as e:
+            logger.error(f"Erro ao criar cronograma básico: {e}")
+            return pd.DataFrame()
+    
+    def get_unique_environments(self, leituras, turno):
+        """Obtém ambientes únicos dos dados de leitura para um turno específico"""
+        try:
+            local_col = self.find_location_column(leituras)
+            arvore_col = self.find_tree_column(leituras)
+            
+            if not local_col and not arvore_col:
+                return pd.DataFrame()
+            
+            # Filtrar por turno se possível
+            df_filtered = leituras.copy()
+            
+            # Criar DataFrame com ambientes únicos
+            ambientes = []
+            for _, row in df_filtered.iterrows():
+                local = row.get(local_col, "") if local_col else ""
+                arvore = row.get(arvore_col, "") if arvore_col else ""
+                
+                if local or arvore:
+                    ambientes.append({
+                        "Local Instalação": local,
+                        "Arvore Prisma4 / Pro": arvore,
+                        "Descrição": f"Ambiente {local or arvore}",
+                        "Turnos": turno
+                    })
+            
+            return pd.DataFrame(ambientes).drop_duplicates()
+            
+        except Exception as e:
+            logger.error(f"Erro ao obter ambientes únicos: {e}")
+            return pd.DataFrame()
+    
+    def find_date_column(self, df):
+        """Encontra a coluna de data/hora no DataFrame"""
+        date_keywords = ['data', 'hora', 'início', 'inicio', 'timestamp']
+        for col in df.columns:
+            if any(keyword in col.lower() for keyword in date_keywords):
+                return col
+        return None
+    
+    def find_qr_column(self, df):
+        """Encontra a coluna de QR code no DataFrame"""
+        qr_keywords = ['qr', 'code', 'codigo', 'código']
+        for col in df.columns:
+            if any(keyword in col.lower() for keyword in qr_keywords):
+                return col
+        return None
+    
+    def find_location_column(self, df):
+        """Encontra a coluna de localização no DataFrame"""
+        location_keywords = ['local', 'instalação', 'instalacao', 'ambiente']
+        for col in df.columns:
+            if any(keyword in col.lower() for keyword in location_keywords):
+                return col
+        return None
+    
+    def find_tree_column(self, df):
+        """Encontra a coluna de árvore/hierarquia no DataFrame"""
+        tree_keywords = ['arvore', 'árvore', 'prisma', 'pro', 'hierarquia']
+        for col in df.columns:
+            if any(keyword in col.lower() for keyword in tree_keywords):
+                return col
+        return None
+    
+    def cleanup_downloads(self):
+        """Limpa a pasta de downloads após processamento bem-sucedido"""
+        try:
+            logger.info("Limpando pasta de downloads...")
+            
+            # Remover arquivos Excel
+            for file in glob.glob(os.path.join(CHROME_DOWNLOAD_PATH, "*.xls")):
+                try:
+                    os.remove(file)
+                    logger.info(f"Arquivo removido: {os.path.basename(file)}")
+                except Exception as e:
+                    logger.warning(f"Erro ao remover {file}: {e}")
+                    
+            for file in glob.glob(os.path.join(CHROME_DOWNLOAD_PATH, "*.xlsx")):
+                try:
+                    os.remove(file)
+                    logger.info(f"Arquivo removido: {os.path.basename(file)}")
+                except Exception as e:
+                    logger.warning(f"Erro ao remover {file}: {e}")
+            
+            # Remover arquivos temporários
+            for file in glob.glob(os.path.join(CHROME_DOWNLOAD_PATH, "*.tmp")):
+                try:
+                    os.remove(file)
+                    logger.info(f"Arquivo temporário removido: {os.path.basename(file)}")
+                except Exception as e:
+                    logger.warning(f"Erro ao remover arquivo temporário {file}: {e}")
+            
+            # Remover arquivos .crdownload (downloads incompletos)
+            for file in glob.glob(os.path.join(CHROME_DOWNLOAD_PATH, "*.crdownload")):
+                try:
+                    os.remove(file)
+                    logger.info(f"Arquivo de download incompleto removido: {os.path.basename(file)}")
+                except Exception as e:
+                    logger.warning(f"Erro ao remover arquivo de download incompleto {file}: {e}")
+            
+            logger.info("Limpeza da pasta downloads concluída")
+            
+        except Exception as e:
+            logger.error(f"Erro durante limpeza da pasta downloads: {e}")
+    
+    def run(self):
+        """Executa o processo completo de coleta"""
+        try:
+            # Configurar driver
+            if not self.setup_driver():
+                return False
+            
+            # Fazer login
+            if not self.login():
+                return False
+            
+            # Navegar para relatórios
+            if not self.navigate_to_reports():
+                return False
+            
+            # Aplicar filtros para o mês atual
+            hoje = datetime.today()
+            primeiro_dia = hoje.replace(day=1).strftime("%d/%m/%Y")
+            ultimo_dia = hoje.replace(day=calendar.monthrange(hoje.year, hoje.month)[1]).strftime("%d/%m/%Y")
+            
+            data_inicio = primeiro_dia
+            data_fim = ultimo_dia
+            
+            logger.info(f"Coletando dados do período: {data_inicio} até {data_fim}")
+            
+            if not self.apply_filters(data_inicio, data_fim):
+                return False
+            
+            # Exportar dados
+            downloaded_file = self.export_data()
+            if not downloaded_file:
+                return False
+            
+            # Processar arquivo
+            if not self.process_excel_file(downloaded_file):
+                return False
+            
+            # Gerar arquivo faltando.json
+            if not self.generate_faltando_json():
+                logger.warning("Falha ao gerar faltando.json, mas coleta foi bem-sucedida")
+            
+            # Limpar pasta de downloads após processamento bem-sucedido
+            self.cleanup_downloads()
+            
+            logger.info("Coleta realizada com sucesso")
+            return True
+            
+        except Exception as e:
+            logger.error(f"Erro durante a coleta: {e}")
+            return False
+        
+        finally:
+            if self.driver:
+                self.driver.quit()
+                logger.info("Driver fechado")
+
+def main():
+    """Função principal"""
+    logger.info("Iniciando coletor com Selenium")
+    
+    max_tentativas = 3
+    for tentativa in range(1, max_tentativas + 1):
+        logger.info(f"Tentativa {tentativa}/{max_tentativas}")
+        
+        coletor = ColetorSelenium()
+        
+        if coletor.run():
+            logger.info("Coleta concluída com sucesso")
+            return 0
+        else:
+            logger.error(f"Tentativa {tentativa} falhou")
+            if tentativa < max_tentativas:
+                logger.info("Aguardando 30 segundos antes da próxima tentativa...")
+                time.sleep(30)
+    
+    logger.error("Todas as tentativas falharam")
+    return 1
+
+if __name__ == "__main__":
+    exit(main())
