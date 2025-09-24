@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ambientes Faltantes</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <h1>Limpeza Convencional - UT Stihl</h1>
+      <div>
+        <a href="index.html">Home</a>
+        <a href="faltando.html" class="active">Ambientes Faltantes</a>
+      </div>
+    </nav>
+
+    <div class="page-container">
+      <h1>Ambientes Faltantes</h1>
+      <form id="form-turno" class="form-turno">
+        <select name="turno" id="turno">
+          <option value="T1">T1</option>
+          <option value="T2">T2 / T2E</option>
+          <option value="T3">T3 / T3E</option>
+          <!--option value="T2E">T2E</option>
+          <option value="T3E">T3E</option-->
+        </select>
+        <button type="submit">Verificar</button>
+      </form>
+
+      <div id="loading" class="hidden">Carregando...</div>
+      <div class="overflow-x-auto">
+        <table id="tabela-faltando" class="hidden">
+          <thead>
+            <tr>
+              <th>Local Instalação</th>
+              <th>Arvore Prisma4 / Pro</th>
+              <th>Descrição</th>
+              <th>Turnos</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p id="mensagem" class="mensagem"></p>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
