@@ -1,3 +1,16 @@
 __pycache__/
 *.pyc
 *.pyo
+
+# Arquivos Python que não devem ir para GitHub
+coletor_selenium.py
+git_manager.py
+.env
+
+# Pastas que não devem ir para GitHub
+backend/
+downloads/
+__pycache__/
+
+# Logs
+*.log
